@@ -31,6 +31,18 @@ Three connectors (Figma, Cowork, Slack). Declared containers (a Coda or Airtable
 
 POC scope details live in `/memory/anchor-poc-scope.md`. The path to scaled scope lives in `/memory/anchor-scaling-path.md`.
 
+## Status
+
+Layer 1 is shipped end-to-end. Three connectors emit the canonical `change_event` shape onto the bus:
+
+- **Cowork** — local Node watcher against a project folder. Filesystem changes render to NDJSON on stdout. Decision tags in filenames or first lines elevate magnitude. Runs against its own working folder.
+- **Figma** — Cloudflare Worker polling Figma's REST API with a personal access token. Cursor-based dedup in KV. Magnitude classifies on version labels and comment threads; the `[decision]` token elevates either. Tested live against a real Figma file.
+- **Slack** — Cloudflare Worker receiving Events API webhooks. HMAC-SHA256 signature verification with a five-minute replay window. Events deduped by Slack event id and stored in KV for retrieval. Tested live against a dedicated workspace.
+
+The bus contract held across three very different connector shapes — local file watcher, cloud polling, cloud webhook receiver — without compromise. Same `change_event`, same magnitude grammar, same downstream contract. That was the whole point of the abstraction; it survived first contact.
+
+Layer 3 (container resolution) and Layer 4 (translation) start next.
+
 ## Demo data
 
 Synthetic and own-generated only. Figma designs Jason creates and edits, Figma Make and Claude Cowork prototypes Jason builds, a dedicated Slack workspace Jason owns. Anything beyond that scope is AI-generated. No real-org data; no past-employer artifacts; no transcripts.

@@ -52,10 +52,10 @@ Both render against a Coda surface in the primary case and an Airtable surface i
 
 **Synthetic and own-generated data only.**
 
-- Jason creates Figma designs and edits them. Real changes; real signal.
-- Jason builds Figma Make and Claude Cowork prototypes. Same.
-- Jason instantiates a dedicated Slack workspace. Real channels, real messages, real activity.
-- Beyond what Jason can plausibly produce by hand, the system uses AI-generated synthetic data — written to match the rough shape and rhythm of activity a real design team produces.
+- Jason creates Figma designs and edits them. **Primary signal lane: comments on his own frames** (treating them as if reviewing his own work — flagging issues, resolving threads, occasional `[decision]`-tagged comments). Per [figma signal shape](anchor-figma-signal-shape.md), designers don't manually label versions in practice, so the version stream will be dominated by `polish` autosaves attributed to `Figma` (system). Autosaves are useful as an activity-floor denominator but not as the spine of the digest.
+- Jason builds Figma Make and Claude Cowork prototypes. Real changes flow through the cowork connector's filesystem watcher.
+- Jason instantiates a dedicated Slack workspace. Real channels, real messages, real threads — focus on threads-of-substance and resolutions, not raw message volume.
+- Beyond what Jason can plausibly produce by hand, the system uses AI-generated synthetic data — written to match the rough shape and rhythm of activity a real design team produces, weighted to the signal lanes that matter (comments, threads, resolutions) rather than to noise floors (autosaves, single-message chatter).
 
 The reasoning lives in [airgap rules](anchor-airgap-rules.md). Real-org data does not enter the demo.
 
@@ -72,3 +72,4 @@ The reasoning lives in [airgap rules](anchor-airgap-rules.md). Real-org data doe
 - [scaling path](anchor-scaling-path.md) — what gets added in Stage 2 and beyond.
 - [sprints week 1 3](anchor-sprints-week-1-3.md) — week-by-week build plan for v0.1.
 - [open decisions](anchor-open-decisions.md) — open decisions resolved during scoping.
+- [figma signal shape](anchor-figma-signal-shape.md) — why the demo's Figma activity leads with comments, not labeled saves.

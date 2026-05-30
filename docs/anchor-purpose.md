@@ -34,7 +34,7 @@ The ordering matters for build priorities. The first user being Jason means the 
 
 Two decades running design ops at large product organizations. Has felt the dashboard-doesn't-work problem from inside multiple operating models. Has published the underlying architecture — capacity inference, organic adoption, lightweight governance. Has lived the case where an embedded function was structurally undone because the cross-cutting value wasn't legible at leadership level. Anchor exists to make that value legible while there's still time.
 
-The Personal Chief of Staff system is the proof Jason can build and ship AI-first operational infrastructure end-to-end. Anchor is the externalized form of that capability.
+A personal operating system Jason has built for himself is the proof he can ship AI-first operational infrastructure end-to-end. Anchor is the externalized form of that capability.
 
 ## Related
 
