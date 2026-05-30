@@ -1,6 +1,7 @@
 ---
 name: anchor-poc-scope
 description: v0.1 build scope — three connectors, three signals, one voice profile, declared containers, two output channels. Plus hard constraints.
+publish: true
 metadata:
   type: project
 ---
@@ -19,7 +20,7 @@ Three is the minimum to prove the bus plus the normalization layer. Adding a fou
 
 ## Containers (declared)
 
-A mapping table in Coda or Airtable (dual adapter — see [[anchor-open-decisions]]). The leader sets up:
+A mapping table in Coda or Airtable (dual adapter — see [open decisions](anchor-open-decisions.md)). The leader sets up:
 
 - 3 projects
 - File, channel, and thread attachments per project
@@ -36,9 +37,9 @@ Cross-BU coordination cost, schedule reality, and decision rework are all out of
 
 ## Voice profile (one)
 
-Jason's. Drawn from `[[anchor-feedback-disliked-words]]`, `[[anchor-feedback-curious-not-credentialing]]`, `[[anchor-feedback-no-company-attribution]]`, `[[anchor-feedback-paragraph-spacing]]`, and the `jason-writing-style` skill. The profile refuses the banned vocabulary out of the box.
+Jason's. Drawn from [feedback disliked words](anchor-feedback-disliked-words.md), [feedback curious not credentialing](anchor-feedback-curious-not-credentialing.md), [feedback no company attribution](anchor-feedback-no-company-attribution.md), [feedback paragraph spacing](anchor-feedback-paragraph-spacing.md), and the `jason-writing-style` skill. The profile refuses the banned vocabulary out of the box.
 
-The profile lives in this folder as `[[anchor-voice-profile-jason]]`. The schema lives as `[[anchor-voice-profile-schema]]`. Future leader profiles are siblings, not children — flat structure.
+The profile lives in this folder as [voice profile jason](anchor-voice-profile-jason.md). The schema lives as [voice profile schema](anchor-voice-profile-schema.md). Future leader profiles are siblings, not children — flat structure.
 
 ## Output (two channels)
 
@@ -56,7 +57,7 @@ Both render against a Coda surface in the primary case and an Airtable surface i
 - Jason instantiates a dedicated Slack workspace. Real channels, real messages, real activity.
 - Beyond what Jason can plausibly produce by hand, the system uses AI-generated synthetic data — written to match the rough shape and rhythm of activity a real design team produces.
 
-The reasoning lives in [[anchor-airgap-rules]]. Real-org data does not enter the demo.
+The reasoning lives in [airgap rules](anchor-airgap-rules.md). Real-org data does not enter the demo.
 
 ## Hard constraints
 
@@ -66,8 +67,8 @@ The reasoning lives in [[anchor-airgap-rules]]. Real-org data does not enter the
 
 ## Related
 
-- [[anchor-architecture]] — the six layers v0.1 partially exercises.
-- [[anchor-airgap-rules]] — load-bearing; demo data must comply.
-- [[anchor-scaling-path]] — what gets added in Stage 2 and beyond.
-- [[anchor-sprints-week-1-3]] — week-by-week build plan for v0.1.
-- [[anchor-open-decisions]] — open decisions resolved during scoping.
+- [architecture](anchor-architecture.md) — the six layers v0.1 partially exercises.
+- [airgap rules](anchor-airgap-rules.md) — load-bearing; demo data must comply.
+- [scaling path](anchor-scaling-path.md) — what gets added in Stage 2 and beyond.
+- [sprints week 1 3](anchor-sprints-week-1-3.md) — week-by-week build plan for v0.1.
+- [open decisions](anchor-open-decisions.md) — open decisions resolved during scoping.

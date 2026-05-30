@@ -1,6 +1,7 @@
 ---
 name: anchor-architecture
 description: The six-layer architecture; each layer's role, contract, and hard rule. Includes the canonical change_event shape.
+publish: true
 metadata:
   type: project
 ---
@@ -119,7 +120,7 @@ The output is mixed by default. A capacity signal that names six people lands as
 - **Tables** — compact, structured. Default when the signal names more than three entities (people, projects, principles).
 - **Reporting visualizations** — sparklines, bar charts, dot plots. Default when the signal has trend, comparison, or magnitude that lands faster as a shape than as a number.
 
-**Voice profile schema:** see [[anchor-voice-profile-schema]]. The profile encodes both verbal register (terseness, vocabulary, framing) and visual register (chart types, density, styling, when to use a table versus a chart versus prose).
+**Voice profile schema:** see [voice profile schema](anchor-voice-profile-schema.md). The profile encodes both verbal register (terseness, vocabulary, framing) and visual register (chart types, density, styling, when to use a table versus a chart versus prose).
 
 **The voice profile is a first-class object.** Leaders can edit theirs in Coda or Airtable. The system re-renders the next digest against the updated profile. The profile is design substrate, not configuration.
 
@@ -127,6 +128,6 @@ The output is mixed by default. A capacity signal that names six people lands as
 
 ## Related
 
-- [[anchor-voice-profile-schema]] — Layer 6 spec.
-- [[anchor-voice-profile-jason]] — first leader profile.
-- [[anchor-poc-scope]] — what subset of this is built at v0.1.
+- [voice profile schema](anchor-voice-profile-schema.md) — Layer 6 spec.
+- [voice profile jason](anchor-voice-profile-jason.md) — first leader profile.
+- [poc scope](anchor-poc-scope.md) — what subset of this is built at v0.1.

@@ -8,7 +8,7 @@ Convert resolved activity into signals a leader can act on.
 
 ## Inputs
 
-Container-tagged `change_event` records from [[layer-3-container-resolution]]. Leader-defined principles from the voice profile and from the principles file.
+Container-tagged `change_event` records from [layer 3 container resolution](layer-3-container-resolution.md). Leader-defined principles from the voice profile and from the principles file.
 
 ## Outputs
 
@@ -26,7 +26,7 @@ Per-container, per-signal records:
 
 ## v0.1 signal set
 
-See [[../signal-spec/capacity]], [[../signal-spec/health-trend]], [[../signal-spec/drift]]. (Files to be created.)
+See [capacity](../signal-spec/capacity.md), [health trend](../signal-spec/health-trend.md), [drift](../signal-spec/drift.md). (Files to be created.)
 
 - **Capacity.** Per person, per container. Surge / sustained-load / slack.
 - **Health-trend.** Per container, week over week. Improving / plateaued / eroding.
@@ -62,10 +62,10 @@ The translation layer checks each principle against each container's activity. A
 
 ## Related
 
-- [[layer-3-container-resolution]] — produces input.
-- [[layer-5-diff-memory]] — consumes output.
-- [[../memory/anchor-architecture]] — full spec.
-- [[../memory/anchor-poc-scope]] — v0.1 signal set.
-- [[../signal-spec/capacity]] — capacity spec.
-- [[../signal-spec/health-trend]] — health-trend spec.
-- [[../signal-spec/drift]] — drift spec.
+- [layer 3 container resolution](layer-3-container-resolution.md) — produces input.
+- [layer 5 diff memory](layer-5-diff-memory.md) — consumes output.
+- [architecture](../docs/anchor-architecture.md) — full spec.
+- [poc scope](../docs/anchor-poc-scope.md) — v0.1 signal set.
+- [capacity](../signal-spec/capacity.md) — capacity spec.
+- [health trend](../signal-spec/health-trend.md) — health-trend spec.
+- [drift](../signal-spec/drift.md) — drift spec.

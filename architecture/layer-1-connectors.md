@@ -12,7 +12,7 @@ Tool-native APIs and webhooks. Per-connector authentication and rate-limit handl
 
 ## Outputs
 
-Stream of `change_event` records on the bus. Shape locked in [[../memory/anchor-architecture]].
+Stream of `change_event` records on the bus. Shape locked in [architecture](../docs/anchor-architecture.md).
 
 ## Tool set for v1
 
@@ -32,28 +32,28 @@ Every connector emits the same event shape. No connector-specific fields downstr
 
 ### Figma
 
-- **Auth.** Personal access token at v0.1; OAuth scope at Stage 2.
-- **Event sources.** REST API webhooks (file_update, library_publish, file_comment); polling for events the webhooks don't cover.
-- **Magnitude heuristics.** TBD in [[layer-2-normalization]].
+- **Auth.** Personal access token at v0.1 (Jason's account). Target architecture is a service account with email-mediated invites — see [adr 01 figma authorization](adr-01-figma-authorization.md). OAuth coexists as a fallback for individual leaders.
+- **Event sources.** Polling at v0.1 (single-leader, low frequency). Webhooks v2 at Stage 3 once the service account has team membership.
+- **Magnitude heuristics.** TBD in [layer 2 normalization](layer-2-normalization.md).
 
 ### Cowork
 
 - **Auth.** Session-scoped at v0.1.
 - **Event sources.** Skill run events, artifact create/update, conversation activity per project folder.
-- **Magnitude heuristics.** TBD in [[layer-2-normalization]].
+- **Magnitude heuristics.** TBD in [layer 2 normalization](layer-2-normalization.md).
 
 ### Slack
 
 - **Auth.** Workspace-restricted OAuth app.
 - **Event sources.** Events API webhooks (message, reaction, channel_created, thread_reply).
-- **Magnitude heuristics.** TBD in [[layer-2-normalization]].
+- **Magnitude heuristics.** TBD in [layer 2 normalization](layer-2-normalization.md).
 
 ## Hosting
 
-Cloudflare Workers per connector (per [[../memory/anchor-open-decisions]]). Reuses the `cowork-http-mcp` pattern.
+Cloudflare Workers per connector (per [open decisions](../docs/anchor-open-decisions.md)). Reuses the `cowork-http-mcp` pattern.
 
 ## Related
 
-- [[layer-2-normalization]] — consumes this layer's output.
-- [[../memory/anchor-architecture]] — the canonical `change_event` shape.
-- [[../memory/anchor-poc-scope]] — v0.1 connector set.
+- [layer 2 normalization](layer-2-normalization.md) — consumes this layer's output.
+- [architecture](../docs/anchor-architecture.md) — the canonical `change_event` shape.
+- [poc scope](../docs/anchor-poc-scope.md) — v0.1 connector set.

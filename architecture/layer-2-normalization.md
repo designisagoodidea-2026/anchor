@@ -8,7 +8,7 @@ Reduce every `change_event` to the canonical shape so downstream layers don't ca
 
 ## Inputs
 
-Stream of `change_event` records from [[layer-1-connectors]].
+Stream of `change_event` records from [layer 1 connectors](layer-1-connectors.md).
 
 ## Outputs
 
@@ -16,7 +16,7 @@ Normalized `change_event` records, each carrying a computed `magnitude`. Anythin
 
 ## Canonical shape
 
-See [[../memory/anchor-architecture]] for the full schema.
+See [architecture](../docs/anchor-architecture.md) for the full schema.
 
 ## Magnitude — the load-bearing computed field
 
@@ -51,6 +51,6 @@ Not "edited" but "polish-touched" versus "core component restructured." Per-sour
 
 ## Related
 
-- [[layer-1-connectors]] — produces input.
-- [[layer-3-container-resolution]] — consumes output.
-- [[../memory/anchor-architecture]] — canonical shape spec.
+- [layer 1 connectors](layer-1-connectors.md) — produces input.
+- [layer 3 container resolution](layer-3-container-resolution.md) — consumes output.
+- [architecture](../docs/anchor-architecture.md) — canonical shape spec.

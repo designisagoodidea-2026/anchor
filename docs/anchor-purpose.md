@@ -1,6 +1,7 @@
 ---
 name: anchor-purpose
 description: One-paragraph product purpose plus the differentiation signal that makes Anchor not-a-clone of existing tools.
+publish: true
 metadata:
   type: project
 ---
@@ -37,6 +38,6 @@ The Personal Chief of Staff system is the proof Jason can build and ship AI-firs
 
 ## Related
 
-- [[anchor-architecture]] — the six layers Anchor is built on.
-- [[anchor-poc-scope]] — what v0.1 builds.
-- [[anchor-values]] — the operating values applied to product decisions.
+- [architecture](anchor-architecture.md) — the six layers Anchor is built on.
+- [poc scope](anchor-poc-scope.md) — what v0.1 builds.
+- [values](anchor-values.md) — the operating values applied to product decisions.

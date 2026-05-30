@@ -8,7 +8,7 @@ Map each `change_event` to the body of work it contributes to.
 
 ## Inputs
 
-Normalized `change_event` records from [[layer-2-normalization]].
+Normalized `change_event` records from [layer 2 normalization](layer-2-normalization.md).
 
 ## Outputs
 
@@ -16,12 +16,30 @@ Normalized `change_event` records from [[layer-2-normalization]].
 
 ## v0.1 approach — declared mapping
 
-A table in Coda or Airtable (dual adapter per [[../memory/anchor-open-decisions]]). The leader sets up:
+A table in Coda or Airtable (dual adapter per [open decisions](../docs/anchor-open-decisions.md)). The leader sets up:
 
 - 3 projects.
 - File, channel, and thread attachments per project.
 
 ~10 minutes of setup.
+
+### Live instance (Jason's v0.1)
+
+**Coda doc** (primary):
+
+- URL: https://coda.io/d/_dThZySK6YQg
+- Container mapping page: `coda://docs/ThZySK6YQg/pages/section-Dhqta_7ctc`
+- Containers table: `coda://docs/ThZySK6YQg/tables/grid-Qw7OPuyfqD`
+
+**Airtable base** (mirror, proving the dual adapter):
+
+- URL: https://airtable.com/appHUDQRGwtB7eE3m
+- Base ID: `appHUDQRGwtB7eE3m`
+- Containers table ID: `tblsWJg3atwEhOBmk`
+
+Both surfaces carry the same seven-column schema (Project, Figma files, Slack channels, Coda pages, Cowork tags, Aliases, Notes) and the same three seed rows (AI Search, Mobile Redesign, Design System v2). The Layer 3 reader picks whichever surface the leader's `CONTAINER_BACKEND` env var points to — leader chooses the canonical instance; the other is a mirror.
+
+Generic-shaped seed rows per [airgap rules](../docs/anchor-airgap-rules.md). Replace with real project names when demo substrate exists.
 
 ### Table schema (Coda or Airtable)
 
@@ -59,7 +77,7 @@ The declared-mapping approach sidesteps inference at the POC stage. The leader c
 
 ## Related
 
-- [[layer-2-normalization]] — produces input.
-- [[layer-4-translation]] — consumes output.
-- [[../memory/anchor-architecture]] — full spec.
-- [[../memory/anchor-open-decisions]] — Coda/Airtable dual-adapter decision.
+- [layer 2 normalization](layer-2-normalization.md) — produces input.
+- [layer 4 translation](layer-4-translation.md) — consumes output.
+- [architecture](../docs/anchor-architecture.md) — full spec.
+- [open decisions](../docs/anchor-open-decisions.md) — Coda/Airtable dual-adapter decision.

@@ -8,7 +8,7 @@ Make the report continuous. Each new digest anchors against the prior digest for
 
 ## Inputs
 
-Per-container, per-signal records from [[layer-4-translation]]. Prior-digest state from the leader's state store.
+Per-container, per-signal records from [layer 4 translation](layer-4-translation.md). Prior-digest state from the leader's state store.
 
 ## Outputs
 
@@ -49,7 +49,7 @@ Concretely: a signal with `delta == "no_change"` renders as a single line ("AI S
 
 ## What "anchored" means
 
-Anchoring is the load-bearing differentiator (per [[../memory/anchor-purpose]]). Three properties:
+Anchoring is the load-bearing differentiator (per [purpose](../docs/anchor-purpose.md)). Three properties:
 
 1. **Continuity.** Each digest references the prior digest's framing where useful. The leader doesn't relearn yesterday's situation.
 2. **Honesty about change.** A signal that hasn't moved gets named as such, not dressed up as new.
@@ -57,12 +57,12 @@ Anchoring is the load-bearing differentiator (per [[../memory/anchor-purpose]]).
 
 ## Calibration loop (deferred to Stage 2)
 
-The leader marks digest items right / wrong / noise; the system adjusts magnitude thresholds and signal weights per-leader. v0.1 is one-way (system → leader). See [[../memory/anchor-open-decisions]].
+The leader marks digest items right / wrong / noise; the system adjusts magnitude thresholds and signal weights per-leader. v0.1 is one-way (system → leader). See [open decisions](../docs/anchor-open-decisions.md).
 
 ## Related
 
-- [[layer-4-translation]] — produces input.
-- [[layer-6-voice-rendering]] — consumes output.
-- [[../memory/anchor-architecture]] — full spec.
-- [[../memory/anchor-purpose]] — anchoring as differentiator.
-- [[../memory/anchor-open-decisions]] — calibration deferral.
+- [layer 4 translation](layer-4-translation.md) — produces input.
+- [layer 6 voice rendering](layer-6-voice-rendering.md) — consumes output.
+- [architecture](../docs/anchor-architecture.md) — full spec.
+- [purpose](../docs/anchor-purpose.md) — anchoring as differentiator.
+- [open decisions](../docs/anchor-open-decisions.md) — calibration deferral.

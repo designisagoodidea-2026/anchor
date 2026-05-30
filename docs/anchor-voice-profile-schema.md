@@ -1,6 +1,7 @@
 ---
 name: anchor-voice-profile-schema
 description: YAML-in-markdown spec for leader voice profiles. The schema each leader's profile follows.
+publish: true
 metadata:
   type: project
 ---
@@ -27,8 +28,8 @@ register:                           # verbal register — prose output
   vocabulary_avoid:                 # words and phrases the leader doesn't want to see
     - word
     - phrase
-  vocabulary_prefer:                # warmer substitutes the leader does want
-    - "X over Y"                    # use X when the alternative would have been Y
+  vocabulary_prefer:                # map: avoided phrasing → preferred substitute
+    avoided_phrase: preferred_substitute
   framing_rules:
     - <named rule>                  # see "rule library" below
   craft_rules:
@@ -82,7 +83,7 @@ Framing rules, craft rules, and pushback triggers are named. The library grows o
 
 - `lead_with_curiosity_not_assertion` — open with a question or observation, not a claim.
 - `ground_in_concrete_examples` — show, don't tell; name the thing.
-- `no_company_attribution_for_external_orgs` — never tell an organization what its mission is. See [[anchor-feedback-no-company-attribution]].
+- `no_company_attribution_for_external_orgs` — never tell an organization what its mission is. See [feedback no company attribution](anchor-feedback-no-company-attribution.md).
 - `explain_causality` — every recommendation answers what, why, and what outcome.
 
 **Craft rules (sample).**
@@ -117,8 +118,8 @@ The renderer applies the same craft to its own output that it expects from the d
 
 ## Related
 
-- [[anchor-voice-profile-jason]] — first instance of this schema.
-- [[anchor-architecture]] — Layer 6 (Voice and rendering) consumes this schema.
-- [[anchor-feedback-disliked-words]] — feeds `vocabulary_avoid` for Jason's profile.
-- [[anchor-feedback-curious-not-credentialing]] — feeds framing rules.
-- [[anchor-feedback-paragraph-spacing]] — feeds craft rules.
+- [voice profile jason](anchor-voice-profile-jason.md) — first instance of this schema.
+- [architecture](anchor-architecture.md) — Layer 6 (Voice and rendering) consumes this schema.
+- [feedback disliked words](anchor-feedback-disliked-words.md) — feeds `vocabulary_avoid` for Jason's profile.
+- [feedback curious not credentialing](anchor-feedback-curious-not-credentialing.md) — feeds framing rules.
+- [feedback paragraph spacing](anchor-feedback-paragraph-spacing.md) — feeds craft rules.
