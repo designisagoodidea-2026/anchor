@@ -17,7 +17,7 @@ Design teams hate logging effort. Leaders need to know who's overloaded, what's 
 Six layers, each with a clean contract:
 
 1. **Source connectors** — MCP servers per tool emit a uniform `change_event`.
-2. **Normalization** — every event reduced to a canonical shape with a computed `magnitude`.
+2. **Normalization** — every event reduced to a canonical shape with a computed `kind` (scope) and `tags` (open vocabulary).
 3. **Container resolution** — each event mapped to the body of work it belongs to.
 4. **Translation** — activity becomes a leadable signal (capacity, health, drift, decision rework).
 5. **Diff + memory** — each new report anchors against the prior read.
@@ -33,15 +33,17 @@ POC scope details live in `/memory/anchor-poc-scope.md`. The path to scaled scop
 
 ## Status
 
-Layer 1 is shipped end-to-end. Three connectors emit the canonical `change_event` shape onto the bus:
+Layers 1 through 4 are shipped end-to-end. Three connectors emit the canonical `change_event` shape onto the bus, Layer 3 resolves each event to its container, and Layer 4 produces the three v0.1 signals:
 
-- **Cowork** — local Node watcher against a project folder. Filesystem changes render to NDJSON on stdout. Decision tags in filenames or first lines elevate magnitude. Runs against its own working folder.
-- **Figma** — Cloudflare Worker polling Figma's REST API with a personal access token. Cursor-based dedup in KV. Magnitude classifies on version labels and comment threads; the `[decision]` token elevates either. Tested live against a real Figma file.
+- **Cowork** — local Node watcher against a project folder. Filesystem changes render to NDJSON on stdout. Decision tokens in filenames or first lines emit a `decision` tag alongside the scope-based `kind`. Runs against its own working folder.
+- **Figma** — Cloudflare Worker polling Figma's REST API with a personal access token. Cursor-based dedup in KV. `kind` classifies on version labels and comment threads; the `[decision]` token surfaces as a tag, independent of scope. Tested live against a real Figma file.
 - **Slack** — Cloudflare Worker receiving Events API webhooks. HMAC-SHA256 signature verification with a five-minute replay window. Events deduped by Slack event id and stored in KV for retrieval. Tested live against a dedicated workspace.
 
-The bus contract held across three very different connector shapes — local file watcher, cloud polling, cloud webhook receiver — without compromise. Same `change_event`, same magnitude grammar, same downstream contract. That was the whole point of the abstraction; it survived first contact.
+The bus contract held across three very different connector shapes — local file watcher, cloud polling, cloud webhook receiver — without compromise. Same `change_event`, same `kind` and `tags` grammar, same downstream contract. That was the whole point of the abstraction; it survived first contact.
 
-Layer 3 (container resolution) and Layer 4 (translation) start next.
+Per [ADR-02](architecture/adr-02-event-kind-and-decision-split.md) (2026-06-02), the original `magnitude` field was split into `kind` (scope-only) and `tags` (open vocabulary; v0.1 emits `decision`), and `change_kind` was renamed to `action`. The "computed at Layer 2" rule held; the split made the downstream signals more honest.
+
+Layer 5 (diff + memory) starts next.
 
 ## Demo data
 

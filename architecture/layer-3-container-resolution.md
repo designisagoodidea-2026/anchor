@@ -1,6 +1,6 @@
 # Layer 3 — Container resolution
 
-Stub. Week 1 outcome: declared-mapping schema written, read-only access from Anchor to the mapping table. Fleshed out in Week 2 as events flow.
+Shipped as of 2026-05-30. The resolver library lives at [`/layer-3/`](../layer-3/README.md): pure `resolveContainer(event, containers)` function with mirrored Coda and Airtable source adapters. Fifteen fixture assertions cover all per-source matching paths (Figma file-key, Slack channel-id, Cowork longest-prefix) plus `resolved` / `unresolved` / `ambiguous` decisions per the hard rule.
 
 ## Role
 
@@ -16,7 +16,7 @@ Normalized `change_event` records from [layer 2 normalization](layer-2-normaliza
 
 ## v0.1 approach — declared mapping
 
-A table in Coda or Airtable (dual adapter per [open decisions](../docs/anchor-open-decisions.md)). The leader sets up:
+A table in Coda or Airtable (dual adapter per [open decisions](../memory/anchor-open-decisions.md)). The leader sets up:
 
 - 3 projects.
 - File, channel, and thread attachments per project.
@@ -39,7 +39,7 @@ A table in Coda or Airtable (dual adapter per [open decisions](../docs/anchor-op
 
 Both surfaces carry the same seven-column schema (Project, Figma files, Slack channels, Coda pages, Cowork tags, Aliases, Notes) and the same three seed rows (AI Search, Mobile Redesign, Design System v2). The Layer 3 reader picks whichever surface the leader's `CONTAINER_BACKEND` env var points to — leader chooses the canonical instance; the other is a mirror.
 
-Generic-shaped seed rows per [airgap rules](../docs/anchor-airgap-rules.md). Replace with real project names when demo substrate exists.
+Generic-shaped seed rows per [airgap rules](../memory/anchor-airgap-rules.md) until real demo substrate exists. As of 2026-05-30, both surfaces hold one real row — `Anchor` — attaching the Figma file the connector polls, the Slack channel the connector receives events from, and the cowork path prefix the watcher emits against. The two remaining aspirational rows were deleted; the resolver handles 1-to-N containers per the test suite.
 
 ### Table schema (Coda or Airtable)
 
@@ -79,5 +79,6 @@ The declared-mapping approach sidesteps inference at the POC stage. The leader c
 
 - [layer 2 normalization](layer-2-normalization.md) — produces input.
 - [layer 4 translation](layer-4-translation.md) — consumes output.
-- [architecture](../docs/anchor-architecture.md) — full spec.
-- [open decisions](../docs/anchor-open-decisions.md) — Coda/Airtable dual-adapter decision.
+- [architecture](../memory/anchor-architecture.md) — full spec.
+- [open decisions](../memory/anchor-open-decisions.md) — Coda/Airtable dual-adapter decision.
+- [`/layer-3/README.md`](../layer-3/README.md) — implementation, setup status, and resolver test suite.

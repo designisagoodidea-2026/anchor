@@ -56,7 +56,7 @@ The form follows the substance. A signal doesn't get a chart because charts are 
 
 ## Visual register — what the voice profile encodes
 
-The profile carries (see [voice profile schema](../docs/anchor-voice-profile-schema.md) for the full schema):
+The profile carries (see [voice profile schema](../memory/anchor-voice-profile-schema.md) for the full schema):
 
 - **Chart preferences.** Preferred chart types per signal kind (e.g., trend → sparkline; capacity comparison → horizontal bar; principle drift → dot plot). Forbidden chart types (3D, pie, anything that obscures the data).
 - **Density.** Compact vs. spacious. Affects table row padding, chart padding, label sizing.
@@ -80,11 +80,11 @@ The visual register inherits this status. If a leader switches from "minimal gre
 
 ## Voice profile schema
 
-See [voice profile schema](../docs/anchor-voice-profile-schema.md).
+See [voice profile schema](../memory/anchor-voice-profile-schema.md).
 
 ## First profile
 
-See [voice profile jason](../docs/anchor-voice-profile-jason.md). The Jason profile is the v0.1 demonstration of the layer.
+See [voice profile jason](../memory/anchor-voice-profile-jason.md). The Jason profile is the v0.1 demonstration of the layer.
 
 ## Rendering pipeline
 
@@ -107,7 +107,7 @@ The profile is a first-class object. Leaders can edit theirs in their Coda/Airta
 
 ## v0.1 surface — Coda and Airtable
 
-Per [open decisions](../docs/anchor-open-decisions.md), the dual adapter abstracts over the surface. The renderer writes to whichever the leader configured at setup. Two reference implementations.
+Per [open decisions](../memory/anchor-open-decisions.md), the dual adapter abstracts over the surface. The renderer writes to whichever the leader configured at setup. Two reference implementations.
 
 ## Future surfaces (Stage 2+)
 
@@ -118,10 +118,10 @@ Per [open decisions](../docs/anchor-open-decisions.md), the dual adapter abstrac
 ## Related
 
 - [layer 5 diff memory](layer-5-diff-memory.md) — produces input.
-- [voice profile schema](../docs/anchor-voice-profile-schema.md) — schema spec.
-- [voice profile jason](../docs/anchor-voice-profile-jason.md) — first profile.
-- [feedback disliked words](../docs/anchor-feedback-disliked-words.md) — banned vocabulary list.
-- [feedback paragraph spacing](../docs/anchor-feedback-paragraph-spacing.md) — craft rules.
-- [feedback curious not credentialing](../docs/anchor-feedback-curious-not-credentialing.md) — framing rules and pushback triggers.
-- [feedback no company attribution](../docs/anchor-feedback-no-company-attribution.md) — framing rule.
-- [feedback no generic outputs](../docs/anchor-feedback-no-generic-outputs.md) — specificity rule.
+- [voice profile schema](../memory/anchor-voice-profile-schema.md) — schema spec.
+- [voice profile jason](../memory/anchor-voice-profile-jason.md) — first profile.
+- [feedback disliked words](../memory/anchor-feedback-disliked-words.md) — banned vocabulary list.
+- [feedback paragraph spacing](../memory/anchor-feedback-paragraph-spacing.md) — craft rules.
+- [feedback curious not credentialing](../memory/anchor-feedback-curious-not-credentialing.md) — framing rules and pushback triggers.
+- [feedback no company attribution](../memory/anchor-feedback-no-company-attribution.md) — framing rule.
+- [feedback no generic outputs](../memory/anchor-feedback-no-generic-outputs.md) — specificity rule.

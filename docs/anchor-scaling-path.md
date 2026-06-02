@@ -16,7 +16,7 @@ Three connectors, one voice profile, declared containers, three signals. Self-in
 
 ## Stage 2 — First real-org pilot
 
-Add Codex and Coda connectors. Calibration loop turned on — the leader marks digest items as right, wrong, or noise; the system adjusts magnitude thresholds and signal weights per leader. Six signals (add cross-BU coordination cost, decision rework, schedule reality). One additional voice profile (a pilot leader's, not Jason's).
+Add Codex and Coda connectors. Calibration loop turned on — the leader marks digest items as right, wrong, or noise; the system adjusts kind weights, decision-tag boost, and signal thresholds per leader. Six signals (add cross-BU coordination cost, decision rework, schedule reality). One additional voice profile (a pilot leader's, not Jason's).
 
 **Auth infrastructure foundations.** Per [adr 01 figma authorization](../architecture/adr-01-figma-authorization.md), Stage 2 prep stands up the Figma service account, dedicated email inbox, and domain. Manual invitation acceptance until the pilot exceeds ~5 designers; the inbox monitor and auto-accept logic land in Stage 2 build at that point.
 

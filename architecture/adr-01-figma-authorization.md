@@ -1,6 +1,6 @@
 # ADR 01 — Figma authorization model
 
-**Status:** decided 2026-05-29. Implementation staged per [scaling path](../docs/anchor-scaling-path.md).
+**Status:** decided 2026-05-29. Implementation staged per [scaling path](../memory/anchor-scaling-path.md).
 
 **Decision:** service account with email-mediated invites as the target architecture. OAuth as a fallback for individual leaders. Enterprise app install as a parallel path when a pilot demands it.
 
@@ -51,7 +51,7 @@ Against:
 
 ## Staged build
 
-Each stage triggered by a real-world signal, not a calendar. Stages align with [scaling path](../docs/anchor-scaling-path.md).
+Each stage triggered by a real-world signal, not a calendar. Stages align with [scaling path](../memory/anchor-scaling-path.md).
 
 ### Anchor Stage 1 (current) — no auth infrastructure
 
@@ -63,7 +63,7 @@ Jason uses a personal Figma PAT for his own files. No service account, no email 
 
 - Register a domain (likely `anchor.app` or similar) or use a dedicated Gmail Workspace alias on an existing domain.
 - Create the dedicated Figma account ("Anchor Watcher") tied to `figma@<domain>`.
-- Create a long-lived Figma PAT for the service account; store via Path B vault once that exists (see [open decisions](../docs/anchor-open-decisions.md)) or `.env` until then.
+- Create a long-lived Figma PAT for the service account; store via Path B vault once that exists (see [open decisions](../memory/anchor-open-decisions.md)) or `.env` until then.
 - Manually invite the service account to one test file (Jason's). Verify polling works through the PAT.
 - Document the manual onboarding procedure: the pilot's designers invite `figma@<domain>`; a human accepts each invite from the inbox until automation lands.
 
@@ -120,6 +120,6 @@ Resolved at Stage 2 prep, not now:
 ## Related
 
 - [layer 1 connectors](layer-1-connectors.md) — Figma connector design notes; this ADR sets the auth pattern.
-- [scaling path](../docs/anchor-scaling-path.md) — the four-stage roadmap the build aligns with.
-- [open decisions](../docs/anchor-open-decisions.md) — the higher-level decisions log this ADR is referenced from.
-- [airgap rules](../docs/anchor-airgap-rules.md) — the service account's public Figma identity is part of Anchor's marketing surface; no leakage from leader data.
+- [scaling path](../memory/anchor-scaling-path.md) — the four-stage roadmap the build aligns with.
+- [open decisions](../memory/anchor-open-decisions.md) — the higher-level decisions log this ADR is referenced from.
+- [airgap rules](../memory/anchor-airgap-rules.md) — the service account's public Figma identity is part of Anchor's marketing surface; no leakage from leader data.

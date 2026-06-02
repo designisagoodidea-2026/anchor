@@ -12,7 +12,7 @@ Tool-native APIs and webhooks. Per-connector authentication and rate-limit handl
 
 ## Outputs
 
-Stream of `change_event` records on the bus. Shape locked in [architecture](../docs/anchor-architecture.md).
+Stream of `change_event` records on the bus. Shape locked in [architecture](../memory/anchor-architecture.md).
 
 ## Tool set for v1
 
@@ -50,10 +50,10 @@ Every connector emits the same event shape. No connector-specific fields downstr
 
 ## Hosting
 
-Cloudflare Workers per connector (per [open decisions](../docs/anchor-open-decisions.md)). Reuses the `cowork-http-mcp` pattern.
+Cloudflare Workers per connector (per [open decisions](../memory/anchor-open-decisions.md)). Reuses the `cowork-http-mcp` pattern.
 
 ## Related
 
 - [layer 2 normalization](layer-2-normalization.md) — consumes this layer's output.
-- [architecture](../docs/anchor-architecture.md) — the canonical `change_event` shape.
-- [poc scope](../docs/anchor-poc-scope.md) — v0.1 connector set.
+- [architecture](../memory/anchor-architecture.md) — the canonical `change_event` shape.
+- [poc scope](../memory/anchor-poc-scope.md) — v0.1 connector set.

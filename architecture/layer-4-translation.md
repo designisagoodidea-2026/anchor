@@ -1,6 +1,6 @@
 # Layer 4 — Translation (activity → leadable signal)
 
-Stub. Week 1 outcome: signal definitions written. Week 2: three signals computing with `because` fields.
+Shipped as of 2026-05-30. The library lives at [`/layer-4/`](../layer-4/README.md): pure `computeSignals(events, containers, principles, window)` orchestrator over `capacity`, `health_trend`, and `drift`. Eighteen fixture assertions cover all three signals' main paths (surge / sustained / slack, improving / plateaued / eroding, compliant / drifting / no_signal) plus the refused-pattern enforcement. Rule-based only at v0.1; LLM judgment is the architecturally-acknowledged gap that ships behind the same `because` contract when it lands.
 
 ## Role
 
@@ -64,8 +64,10 @@ The translation layer checks each principle against each container's activity. A
 
 - [layer 3 container resolution](layer-3-container-resolution.md) — produces input.
 - [layer 5 diff memory](layer-5-diff-memory.md) — consumes output.
-- [architecture](../docs/anchor-architecture.md) — full spec.
-- [poc scope](../docs/anchor-poc-scope.md) — v0.1 signal set.
+- [architecture](../memory/anchor-architecture.md) — full spec.
+- [poc scope](../memory/anchor-poc-scope.md) — v0.1 signal set.
 - [capacity](../signal-spec/capacity.md) — capacity spec.
 - [health trend](../signal-spec/health-trend.md) — health-trend spec.
 - [drift](../signal-spec/drift.md) — drift spec.
+- [`/layer-4/README.md`](../layer-4/README.md) — implementation, setup status, and rule-engine reference.
+- [`/principles/jason.yaml`](../principles/jason.yaml) — Jason's leader-defined principles (the input for drift).

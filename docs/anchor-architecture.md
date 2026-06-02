@@ -30,7 +30,7 @@ The contracts are load-bearing. If a connector starts caring about voice renderi
 
 **Role.** Reduce every `change_event` to the canonical shape so downstream layers don't care which tool it came from.
 
-**Canonical shape:**
+**Canonical shape** (per [adr 02 event kind and decision split](../architecture/adr-02-event-kind-and-decision-split.md)):
 
 ```
 {
@@ -40,16 +40,21 @@ The contracts are load-bearing. If a connector starts caring about voice renderi
   entity_id:      stable identifier within source
   entity_type:    "file" | "frame" | "thread" | "message" | "skill_run" | "artifact" | ...
   parent_id:      optional — for hierarchy (project → file → frame)
-  change_kind:    "create" | "edit" | "comment" | "review" | "approve" | "mention" | ...
-  magnitude:      "polish" | "moderate" | "structural" | "decision"
+  action:         "create" | "edit" | "comment" | "review" | "approve" | "mention" | ...
+  kind:           "polish" | "moderate" | "structural" | "unknown"
+  tags:           string[]   — open vocabulary; v0.1 emits ["decision"]
   snippet:        1–2 sentences of substance preview
   raw_ref:        opaque pointer back to the source record (for audit + click-through)
 }
 ```
 
-**`magnitude` is the load-bearing computed field.** Not "edited" but "polish-touched" versus "core component restructured." Per-source heuristics decide what counts as low, medium, high, or structural.
+**`kind` is the load-bearing computed field.** Not "edited" but "polish-touched" versus "core component restructured." Per-source heuristics decide what counts as polish, moderate, structural, or (when the connector can't tell) unknown. It's a category, not a scale.
 
-**Hard rule.** `magnitude` is computed at this layer, not at translation. Downstream signals depend on it being honest. If a connector can't compute magnitude, it emits `"unknown"` and gets filtered.
+**`tags` carries source-emitted markers** orthogonal to scope. v0.1's only emitter is `"decision"` — written when a `[decision]` token appears in the source. A polish-scoped event can carry a decision tag; downstream signals treat the two facts independently.
+
+**Hard rule.** `kind` and `tags` are computed at this layer, not at translation. Downstream signals depend on them being honest. If a connector can't compute `kind`, it emits `"unknown"` and gets filtered. `tags` defaults to `[]` when no markers fire.
+
+Schema history: the original shape carried `magnitude` (a five-value enum that mixed scope and decision-ness) and `change_kind` (the action verb). Per ADR-02, `magnitude` was split into `kind` (scope-only) and `tags` (open vocabulary), and `change_kind` was renamed to `action`. The "computed at Layer 2" rule and the "unknown → filter" rule both carried forward unchanged.
 
 ## Layer 3 — Container resolution
 
