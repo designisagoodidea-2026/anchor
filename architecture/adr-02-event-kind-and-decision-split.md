@@ -132,5 +132,5 @@ Not changing:
 
 - [layer 2 normalization](layer-2-normalization.md) — where `kind` is computed.
 - [layer 4 translation](layer-4-translation.md) — primary consumer; the place where the two-jobs problem actually hurts.
-- [anchor-architecture](../memory/anchor-architecture.md) — canonical shape spec; this ADR updates it.
-- [open decisions](../memory/anchor-open-decisions.md) — the deferred items this migration leaves alone.
+- [anchor-architecture](../docs/anchor-architecture.md) — canonical shape spec; this ADR updates it.
+- [open decisions](../docs/anchor-open-decisions.md) — the deferred items this migration leaves alone.

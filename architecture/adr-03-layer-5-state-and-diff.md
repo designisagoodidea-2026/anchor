@@ -175,6 +175,6 @@ Not changing:
 - [layer 5 diff memory](layer-5-diff-memory.md) — the architectural spec this ADR operationalizes.
 - [layer 4 translation](layer-4-translation.md) — produces the input.
 - [layer 6 voice rendering](layer-6-voice-rendering.md) — consumes the output.
-- [anchor purpose](../memory/anchor-purpose.md) — anchoring as differentiator.
+- [anchor purpose](../docs/anchor-purpose.md) — anchoring as differentiator.
 - [adr 02 event kind and decision split](adr-02-event-kind-and-decision-split.md) — the prior ADR; same shape.
-- [open decisions](../memory/anchor-open-decisions.md) — calibration loop deferral.
+- [open decisions](../docs/anchor-open-decisions.md) — calibration loop deferral.

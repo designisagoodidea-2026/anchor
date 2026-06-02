@@ -18,7 +18,7 @@ Normalized `change_event` records, each carrying a computed `kind` and `tags` ar
 
 ## Canonical shape
 
-See [architecture](../memory/anchor-architecture.md) for the full schema.
+See [architecture](../docs/anchor-architecture.md) for the full schema.
 
 ## Kind — the load-bearing computed field
 
@@ -36,7 +36,7 @@ Structural — new component published to the library; mass replacement of an ex
 
 #### Signal-lane reality at Stage 1
 
-Per [figma signal shape](../memory/anchor-figma-signal-shape.md): designers do not manually label versions. The Figma version stream will be dominated by `polish`-kind autosaves attributed to `Figma` (system), not to humans. The classifier's job here is honest classification of each event; the *signal lane* that carries the digest is comments, not version labels.
+Per [figma signal shape](../docs/anchor-figma-signal-shape.md): designers do not manually label versions. The Figma version stream will be dominated by `polish`-kind autosaves attributed to `Figma` (system), not to humans. The classifier's job here is honest classification of each event; the *signal lane* that carries the digest is comments, not version labels.
 
 Autosaves are activity-floor signal. Useful as a denominator ("this file is being edited"); not a numerator. Layer 4 filters them out of the digest by default and resurfaces them only as background rate.
 
@@ -76,6 +76,6 @@ Future tag values (Stage 2 candidates): `question`, `experiment`, `regression`, 
 
 - [layer 1 connectors](layer-1-connectors.md) — produces input.
 - [layer 3 container resolution](layer-3-container-resolution.md) — consumes output.
-- [architecture](../memory/anchor-architecture.md) — canonical shape spec.
-- [figma signal shape](../memory/anchor-figma-signal-shape.md) — load-bearing assumption about how the Figma signal-lane distribution skews at Stage 1.
+- [architecture](../docs/anchor-architecture.md) — canonical shape spec.
+- [figma signal shape](../docs/anchor-figma-signal-shape.md) — load-bearing assumption about how the Figma signal-lane distribution skews at Stage 1.
 - [adr 02 event kind and decision split](adr-02-event-kind-and-decision-split.md) — the rename and split this file now reflects.

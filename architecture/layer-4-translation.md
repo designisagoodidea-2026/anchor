@@ -64,8 +64,8 @@ The translation layer checks each principle against each container's activity. A
 
 - [layer 3 container resolution](layer-3-container-resolution.md) — produces input.
 - [layer 5 diff memory](layer-5-diff-memory.md) — consumes output.
-- [architecture](../memory/anchor-architecture.md) — full spec.
-- [poc scope](../memory/anchor-poc-scope.md) — v0.1 signal set.
+- [architecture](../docs/anchor-architecture.md) — full spec.
+- [poc scope](../docs/anchor-poc-scope.md) — v0.1 signal set.
 - [capacity](../signal-spec/capacity.md) — capacity spec.
 - [health trend](../signal-spec/health-trend.md) — health-trend spec.
 - [drift](../signal-spec/drift.md) — drift spec.
