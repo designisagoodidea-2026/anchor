@@ -25,6 +25,12 @@ Six layers, each with a clean contract:
 
 Architecture details live in `/architecture/layer-1-connectors.md` through `/architecture/layer-6-voice-rendering.md`.
 
+## Composition with Translation Engine
+
+Anchor is composed with [Translation Engine](https://github.com/designisagoodidea-2026/translation-engine) — a sibling project that owns the schema-translation substrate: canonical record shape, loss-manifest semantics, per-source grammars. TE handles fetch, auth, and canonical-record emission for tools whose adapters it ships (Jira and Airtable today; Figma, Cowork, and Slack on the upstream-contribution queue). Anchor consumes those grammars and adds the layers above: container resolution, signal translation, diff against prior reads, voice-aware rendering.
+
+The code-level composition activated with [ADR-04](architecture/adr-04-jira-pilot-1-coda-removed.md). The Jira adapter at `layer-3/src/jira-source.ts` is the first concrete TE import, wrapping TE's Jira grammar for the pilot-1 container source. The decision-protocol governance — semver discipline, breaking-change protocol, dedicated-commit upgrades — is in [docs/anchor-te-composition.md](docs/anchor-te-composition.md).
+
 ## v0.1 scope
 
 Three connectors (Figma, Cowork, Slack). Containers sourced from Jira projects (pilot 1) or an Airtable mapping table (fixture / fallback) per [ADR-04](architecture/adr-04-jira-pilot-1-coda-removed.md). Three signals (capacity, health-trend, drift against principles). One voice profile (Jason's). Daily digest rendered to markdown plus a Friday narrative summary.
