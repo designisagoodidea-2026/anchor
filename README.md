@@ -25,6 +25,45 @@ Six layers, each with a clean contract:
 
 Architecture details live in `/architecture/layer-1-connectors.md` through `/architecture/layer-6-voice-rendering.md`.
 
+## System diagram
+
+```mermaid
+flowchart TD
+  subgraph Anchor["Anchor"]
+    direction TB
+    L1["Layer 1 — Source connectors<br/>Figma · Cowork · Slack · (Jira soon)"]
+    L2["Layer 2 — Normalization<br/>one shared event format"]
+    L3["Layer 3 — Container resolution<br/>JiraContainerSource (pilot 1 primary)<br/>AirtableContainerSource (fixture / fallback)"]
+    L4["Layer 4 — Translation<br/>Capacity · Health-trend · Drift"]
+    L5["Layer 5 — Diff + memory<br/>state/&lt;leader&gt;.json"]
+    L6["Layer 6 — Voice + rendering<br/>markdown digest + Friday narrative"]
+    L1 --> L2 --> L3 --> L4 --> L5 --> L6
+  end
+
+  subgraph TE["Translation Engine (sibling)"]
+    direction TB
+    TEJ["Jira adapter"]
+    TEA["Airtable adapter"]
+  end
+
+  subgraph Substrate["Leader-defined substrate"]
+    direction TB
+    P["Principles (YAML)"]
+    VP["Voice profile (YAML in markdown)"]
+  end
+
+  TEJ -. talks to Jira's API .-> L3
+  P -. drives drift signal .-> L4
+  VP -. configures rendering .-> L6
+
+  classDef teClass fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#01579b
+  classDef substrateClass fill:#fff8e1,stroke:#fb8c00,stroke-width:1px,color:#e65100
+  class TEJ,TEA teClass
+  class P,VP substrateClass
+```
+
+*Polished version: [FigJam board](https://www.figma.com/board/3OSCL89ZpoTCXL5dv72YU9).*
+
 ## Composition with Translation Engine
 
 Anchor is composed with [Translation Engine](https://github.com/designisagoodidea-2026/translation-engine) — a sibling project that owns the schema-translation substrate: canonical record shape, loss-manifest semantics, per-source grammars. TE handles fetch, auth, and canonical-record emission for tools whose adapters it ships (Jira and Airtable today; Figma, Cowork, and Slack on the upstream-contribution queue). Anchor consumes those grammars and adds the layers above: container resolution, signal translation, diff against prior reads, voice-aware rendering.
