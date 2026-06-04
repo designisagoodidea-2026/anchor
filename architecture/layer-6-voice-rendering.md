@@ -14,7 +14,7 @@ Diff records from [layer 5 diff memory](layer-5-diff-memory.md). Leader voice pr
 
 Two surfaces:
 
-- **Daily digest** rendered to the leader's Coda or Airtable surface.
+- **Daily digest** rendered to markdown (pilot 1, per [adr 04](adr-04-jira-pilot-1-coda-removed.md)). Hosted target (web view / email / Slack canvas / Notion) decided at pilot 2.
 - **Friday narrative summary** rendered as `.md`, sendable as email.
 
 Both rendered against the voice profile; both honor the verbal register (framing rules, craft rules, pushback triggers) AND the visual register (chart types, density, styling, when to reach for which form).
@@ -52,7 +52,7 @@ The form follows the substance. A signal doesn't get a chart because charts are 
    - Refuse chart-junk patterns the profile excludes (3D bars, redundant legends, gratuitous icons).
    - Annotate each visual with its `because` reference (click-through to evidence).
 6. Compose the mixed output (prose + tables + charts) in the surface's native format.
-7. Publish to the surface (Coda page, Airtable record, email body).
+7. Publish to the surface (markdown file at pilot 1; hosted target decided at pilot 2 per [adr 04](adr-04-jira-pilot-1-coda-removed.md)).
 
 ## Visual register — what the voice profile encodes
 
@@ -74,7 +74,7 @@ Concretely: a failed render emits a `render_failed` event with the failing rule 
 
 ## The voice profile as design substrate
 
-The profile is a first-class object. Leaders can edit theirs in their Coda/Airtable surface. The system re-renders the next digest against the updated profile. The profile is not configuration; it's substrate, treated the same way the design team would treat a design system spec.
+The profile is a first-class object. Leaders edit theirs as YAML-in-markdown checked into the repo. The system re-renders the next digest against the updated profile. The profile is not configuration; it's substrate, treated the same way the design team would treat a design system spec.
 
 The visual register inherits this status. If a leader switches from "minimal greyscale" to "permission for accent color," the next digest renders against the change. The renderer doesn't ask; it reads the profile and renders.
 
@@ -103,11 +103,11 @@ Concretely: a failed render emits a `render_failed` event with the failing rule 
 
 ## The voice profile as design substrate
 
-The profile is a first-class object. Leaders can edit theirs in their Coda/Airtable surface. The system re-renders the next digest against the updated profile. The profile is not configuration; it's substrate, treated the same way the design team would treat a design system spec.
+The profile is a first-class object. Leaders edit theirs as YAML-in-markdown checked into the repo. The system re-renders the next digest against the updated profile. The profile is not configuration; it's substrate, treated the same way the design team would treat a design system spec.
 
-## v0.1 surface — Coda and Airtable
+## v0.2 surface — markdown (pilot 1)
 
-Per [open decisions](../docs/anchor-open-decisions.md), the dual adapter abstracts over the surface. The renderer writes to whichever the leader configured at setup. Two reference implementations.
+Per [adr 04](adr-04-jira-pilot-1-coda-removed.md), pilot 1 reads the digest as markdown during the 1:1 walkthrough. The hosted rendering target (web view at `anchor.app/digest/<tenant>`, email push, Slack canvas, or Notion) is decided when pilot 2 surfaces. Coda's combined-container-and-renderer role is retired.
 
 ## Future surfaces (Stage 2+)
 

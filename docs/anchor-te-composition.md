@@ -1,10 +1,16 @@
 ---
 name: anchor-te-composition
-description: Anchor imports Translation Engine as a library for Layers 1–2 rather than reimplementing them. Build focus stays on Layers 3–6 — container resolution, signal translation, diff/memory, voice rendering.
+description: Historical record of the 2026-06-03 decision to compose Anchor with Translation Engine. Superseded twice — first by the 2026-06-04 pass 8 reframe (no current code import), then re-activated by [adr 04](../architecture/adr-04-jira-pilot-1-coda-removed.md) on 2026-06-04 which makes the Jira adapter the lazy-add first-import moment. See CLAUDE.md "Composition with Translation Engine" for current posture.
 publish: true
 metadata:
   type: project
 ---
+
+## Update — 2026-06-04 evening
+
+ADR-04 (Jira for pilot 1, Coda removed) makes the Jira adapter the first concrete TE import. Decision 6 (lazy add) fires. `translation-engine: file:../Translation Engine` dependency lands in `layer-3/` when the Jira adapter ships. TE's Jira grammar gets wrapped; Anchor's `kind` heuristics stay Anchor-side. The "no current code import" posture is retired.
+
+The Figma / Cowork / Slack adapters in [upstream contribution queue](anchor-upstream-contribution-queue.md) remain deferred — ADR-04 does not address them. Re-evaluation trigger (pilot tool stack pulls toward TE primitives) has plausibly fired with the Jira pivot; separate ADR will judge.
 
 ## Date
 

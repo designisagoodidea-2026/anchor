@@ -20,12 +20,9 @@ Three is the minimum to prove the bus plus the normalization layer. Adding a fou
 
 ## Containers (declared)
 
-A mapping table in Coda or Airtable (dual adapter — see [open decisions](anchor-open-decisions.md)). The leader sets up:
+Per [adr 04](../architecture/adr-04-jira-pilot-1-coda-removed.md): Jira projects (and / or epics) for pilot #1; Airtable mapping table retained for fixture / self-hosted fallback. Coda removed. The leader picks which Jira projects Anchor watches — the Jira hierarchy IS the leader's declared bodies of work, no separate mapping setup needed.
 
-- 3 projects
-- File, channel, and thread attachments per project
-
-~10 minutes of setup. No inference yet; the inference layer is a Stage 2 story.
+Asana follows for pilot #2 (cross-functional default). Embedding-based inference deferred to Stage 3.
 
 ## Signals (three)
 
@@ -46,7 +43,7 @@ The profile lives in this folder as [voice profile jason](anchor-voice-profile-j
 - **Daily digest** — short, ~6 lines per signal. Anchored against yesterday's read. Click any signal to see the events that produced it (drill-through via the `because` field).
 - **Friday narrative summary** — longer, prose form. Anchored against last Friday's read. Renders in the voice profile. Sendable as email through the existing `cowork-http-mcp` plus Apps Script pipeline.
 
-Both render against a Coda surface in the primary case and an Airtable surface in the second case, via the dual-adapter layer.
+Both render to local markdown for pilot #1's 1:1 walkthrough. The hosted rendering target (web view, email push, Slack canvas, Notion) is deferred to pilot #2 per [adr 04](../architecture/adr-04-jira-pilot-1-coda-removed.md).
 
 ## Demo scenario
 

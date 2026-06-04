@@ -27,7 +27,7 @@ Architecture details live in `/architecture/layer-1-connectors.md` through `/arc
 
 ## v0.1 scope
 
-Three connectors (Figma, Cowork, Slack). Declared containers (a Coda or Airtable table mapping projects to files, channels, threads). Three signals (capacity, health-trend, drift against principles). One voice profile (Jason's). Daily Coda/Airtable digest plus a Friday narrative summary.
+Three connectors (Figma, Cowork, Slack). Containers sourced from Jira projects (pilot 1) or an Airtable mapping table (fixture / fallback) per [ADR-04](architecture/adr-04-jira-pilot-1-coda-removed.md). Three signals (capacity, health-trend, drift against principles). One voice profile (Jason's). Daily digest rendered to markdown plus a Friday narrative summary.
 
 POC scope details live in `/memory/anchor-poc-scope.md`. The path to scaled scope lives in `/memory/anchor-scaling-path.md`.
 

@@ -30,7 +30,7 @@ The Jira adapter (and the Airtable destination adapter) **do** ship in TE at `0.
 
 ## Future connectors (Stage 2+)
 
-Claude API, Codex, Make, Coda, Otter, GitHub, Asana, Linear. Each gets built as a TE adapter; Anchor imports as needed.
+Claude API, Codex, Make, Otter, GitHub, Asana, Linear. Each gets built as a TE adapter; Anchor imports as needed. The Jira issue-event connector is the first Stage 2 connector, per [adr 04](adr-04-jira-pilot-1-coda-removed.md).
 
 ## Hard rule
 

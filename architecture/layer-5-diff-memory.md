@@ -28,7 +28,7 @@ Diff records the rendering layer consumes:
 
 ## State per leader
 
-Stored in Coda or Airtable (dual adapter):
+Stored as local JSON per leader at `state/<leader-id>.json` (per [adr 03](adr-03-layer-5-state-and-diff.md)):
 
 - What was the prior read? (Per signal, per container.)
 - What did the leader flag? (Acknowledge, dismiss, watch.)

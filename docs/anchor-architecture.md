@@ -22,7 +22,7 @@ The contracts are load-bearing. If a connector starts caring about voice renderi
 
 **Tool set for v1.** Figma, Cowork, Slack. Three is enough to prove the bus and the normalization layer.
 
-**Future tools.** Claude API, Codex, Make, Coda, Otter, GitHub, Asana, Linear. Each gets its own MCP server.
+**Future tools.** Claude API, Codex, Make, Otter, GitHub, Asana, Linear. Each gets its own MCP server. Jira ships as a Stage 2 connector alongside the ADR-04 container-source build.
 
 **Hard rule.** Every connector emits the same event shape. No connector-specific fields downstream. Tool-specific nuance lives in the `snippet` field as text, not as schema.
 
@@ -60,16 +60,16 @@ Schema history: the original shape carried `magnitude` (a five-value enum that m
 
 **Role.** Map each `change_event` to the body of work it contributes to.
 
-The hardest layer, because real orgs have inconsistent naming. The Figma file says "AI Search v3 — final." The Coda project page says "AI Search." The Slack channel is `#proj-aisrch`. Otter calls it "AI Search Project." Same body of work, four different names.
+The hardest layer, because real orgs have inconsistent naming. The Figma file says "AI Search v3 — final." The Jira project is "AI Search." The Slack channel is `#proj-aisrch`. Otter calls it "AI Search Project." Same body of work, four different names.
 
-**POC approach.** Leader declares the mapping once in a Coda or Airtable table:
+**POC approach (per [adr 04](../architecture/adr-04-jira-pilot-1-coda-removed.md)).** Leader picks Jira projects to watch — the project hierarchy IS the declared bodies of work. Cross-source associations come from optional Jira project properties carrying CSV lists; if unset, Jira-source events still resolve by project key, and Figma / Slack / Cowork events land as `unresolved` until the leader connects them. Airtable retained as fixture / self-hosted fallback:
 
 ```
-Project: "AI Search"
-  Figma files: [list of file URLs or IDs]
-  Slack channels: [#proj-aisrch, #design-aisrch]
-  Coda pages: [list of doc URLs]
-  Tags: [aisrch, AI-search]
+Project: "AI Search"  (Jira project key: AISRCH)
+  Figma files (property "anchor-figma-files"): [file keys, CSV]
+  Slack channels (property "anchor-slack-channels"): [#proj-aisrch, ...]
+  Cowork paths (property "anchor-cowork-paths"): [/Users/.../AISearch, ...]
+  Aliases: [AISRCH, AI Search]
 ```
 
 **Scaled approach.** Embeddings over entity names; the system proposes container assignments; the leader corrects in-band; the system learns the org's vocabulary.
@@ -127,7 +127,7 @@ The output is mixed by default. A capacity signal that names six people lands as
 
 **Voice profile schema:** see [voice profile schema](anchor-voice-profile-schema.md). The profile encodes both verbal register (terseness, vocabulary, framing) and visual register (chart types, density, styling, when to use a table versus a chart versus prose).
 
-**The voice profile is a first-class object.** Leaders can edit theirs in Coda or Airtable. The system re-renders the next digest against the updated profile. The profile is design substrate, not configuration.
+**The voice profile is a first-class object.** Leaders edit theirs as YAML-in-markdown checked into the repo. The system re-renders the next digest against the updated profile. The profile is design substrate, not configuration.
 
 **Hard rule.** The system applies the same craft to its own output that it expects from the design team. If it can't render in the leader's voice — banned vocabulary present, framing rule violated, visual register violated (e.g., dashboard-style chart junk when the profile asks for minimal) — it surfaces the failure rather than fall back to neutral SaaS language.
 
