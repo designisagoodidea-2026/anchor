@@ -73,3 +73,6 @@ The reasoning lives in [airgap rules](anchor-airgap-rules.md). Real-org data doe
 - [sprints week 1 3](anchor-sprints-week-1-3.md) — week-by-week build plan for v0.1.
 - [open decisions](anchor-open-decisions.md) — open decisions resolved during scoping.
 - [figma signal shape](anchor-figma-signal-shape.md) — why the demo's Figma activity leads with comments, not labeled saves.
+
+
+
