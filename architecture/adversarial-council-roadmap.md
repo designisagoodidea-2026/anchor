@@ -205,3 +205,75 @@ This section captures product integrations we intend to evaluate and phase in. P
 - Prefer products with stable API/webhook support and event history access.
 - For each candidate, define minimum viable event contract before implementation.
 - Start with read-only ingestion and deterministic replay fixtures before enabling live writes or side effects.
+
+## Ranked connector order (impact vs effort)
+
+Scoring scale:
+
+- Impact: 1 (low) to 5 (high)
+- Effort: 1 (low) to 5 (high)
+- Priority score = Impact / Effort
+
+| Rank | Product | Impact | Effort | Priority score | Why now |
+| --- | --- | ---: | ---: | ---: | --- |
+| 1 | Jira | 5 | 2 | 2.50 | Core planning signal for delivery risk, ownership, and throughput; high structure and established API patterns. |
+| 2 | GitHub | 5 | 2 | 2.50 | Strong downstream execution signal and issue/PR metadata; high value for decision-to-ship traceability. |
+| 3 | Linear | 5 | 3 | 1.67 | High-quality issue lifecycle data in design-product teams; excellent signal fidelity for priority drift. |
+| 4 | Notion | 4 | 3 | 1.33 | Decision memory and planning artifacts; broad adoption and meaningful docs/knowledge signal. |
+| 5 | Microsoft Teams | 4 | 3 | 1.33 | Communication and coordination signal where Slack is not primary; useful for dependency health. |
+| 6 | Confluence | 4 | 3 | 1.33 | Architecture and decision-document history; high explainability value in larger orgs. |
+| 7 | Google Docs | 4 | 3 | 1.33 | Decision-content and collaboration trend data; complements ticket systems with rationale signal. |
+| 8 | Google Drive | 3 | 3 | 1.00 | Asset movement and doc ownership context; useful but less semantically rich than docs/issues. |
+| 9 | Zoom | 3 | 4 | 0.75 | Meeting-load and cadence signal; moderate value, but event semantics are weaker than work-item tools. |
+| 10 | Airtable | 3 | 4 | 0.75 | Valuable in ops-heavy teams, but schema variability increases normalization effort. |
+| 11 | UserTesting | 3 | 4 | 0.75 | Research signal quality can be high, but APIs and event granularity vary by workflow setup. |
+| 12 | Claude Design | 3 | 4 | 0.75 | Potentially high design-intent signal, but integration surface and canonical event shape are still emerging. |
+| 13 | Granola | 2 | 4 | 0.50 | Useful note-derived decision memory; integration/event access maturity uncertain for deterministic ingest. |
+| 14 | Adobe XD | 2 | 4 | 0.50 | Relevant for some teams, but market adoption is lower and event depth is often limited. |
+| 15 | Adobe Express | 2 | 4 | 0.50 | Secondary content workflow signal with lower direct value for product/design operations status. |
+| 16 | Google Meet | 2 | 3 | 0.67 | Similar role to Zoom/Teams meetings; useful but usually lower impact than work-item systems. |
+| 17 | Google Chat | 2 | 3 | 0.67 | Helpful where Teams/Slack absent; generally lower signal density for delivery metrics. |
+| 18 | Google Calendar | 2 | 3 | 0.67 | Useful for capacity context and meeting load, but weak direct product-state signal. |
+| 19 | Google Sheets | 2 | 3 | 0.67 | Common in ops reporting, but structure inconsistency increases semantic extraction effort. |
+| 20 | Google Slides | 1 | 3 | 0.33 | Primarily presentation artifacts; low direct operational signal for continuous status sensing. |
+| 21 | Google Antigravity (exploratory) | 1 | 5 | 0.20 | Product identity/API and event model still unverified; hold until interface is concrete. |
+
+## How impact and effort estimates are produced
+
+We use a two-pass estimate so rankings stay practical but auditable.
+
+### Pass 1: fast prior estimate (planning)
+
+Impact components (weighted):
+
+- 35%: signal density (how many meaningful events/week).
+- 30%: signal relevance (capacity, health-trend, drift, decision rework).
+- 20%: cross-team coverage (design, product, engineering, leadership overlap).
+- 15%: actionability (can the resulting signal drive concrete leader action).
+
+Effort components (weighted):
+
+- 30%: API/auth complexity (OAuth scopes, service accounts, token lifecycle).
+- 25%: event model cleanliness (structured payloads vs free text).
+- 20%: normalization burden (mapping into canonical `change_event` with low loss).
+- 15%: operational load (rate limits, retries, webhooks, backfill mechanics).
+- 10%: governance/test overhead (fixtures, replay determinism, policy checks).
+
+### Pass 2: empirical recalibration (after connector spike)
+
+Each connector gets a short spike that measures:
+
+- Real event throughput from one representative workspace.
+- Parse success rate and unresolved-event rate at ingest boundary.
+- Replay determinism in permissive and strict modes.
+- Time-to-first-useful-signal (days) and maintenance burden (ops incidents/week).
+
+Then we re-score impact and effort and update rank before full implementation.
+
+### Confidence handling
+
+- High confidence: mature API, known event model, prior fixture success.
+- Medium confidence: partial docs/access known, moderate unknowns.
+- Low confidence: product/API unclear or highly variable data shape.
+
+Low-confidence items can stay on roadmap but should not outrank medium/high-confidence items unless expected impact is materially higher.
