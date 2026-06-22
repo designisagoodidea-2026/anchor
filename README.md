@@ -78,7 +78,7 @@ POC scope details live in `/memory/anchor-poc-scope.md`. The path to scaled scop
 
 ## Status
 
-Layers 1 through 4 are shipped end-to-end. Three connectors emit the canonical `change_event` shape onto the bus, Layer 3 resolves each event to its container, and Layer 4 produces the three v0.1 signals:
+Layers 1 through 5 are shipped end-to-end. Three connectors emit the canonical `change_event` shape onto the bus, Layer 3 resolves each event to its container, Layer 4 produces the three v0.1 signals, and Layer 5 anchors each report against prior state.
 
 - **Cowork** — local Node watcher against a project folder. Filesystem changes render to NDJSON on stdout. Decision tokens in filenames or first lines emit a `decision` tag alongside the scope-based `kind`. Runs against its own working folder.
 - **Figma** — Cloudflare Worker polling Figma's REST API with a personal access token. Cursor-based dedup in KV. `kind` classifies on version labels and comment threads; the `[decision]` token surfaces as a tag, independent of scope. Tested live against a real Figma file.
@@ -88,7 +88,15 @@ The bus contract held across three very different connector shapes — local fil
 
 Per [ADR-02](architecture/adr-02-event-kind-and-decision-split.md) (2026-06-02), the original `magnitude` field was split into `kind` (scope-only) and `tags` (open vocabulary; v0.1 emits `decision`), and `change_kind` was renamed to `action`. The "computed at Layer 2" rule held; the split made the downstream signals more honest.
 
-Layer 5 (diff + memory) starts next.
+Latest hardening pass (2026-06-21):
+
+- Layer 4 now supports explicit contract modes (`permissive` and `strict`) plus contract-level diagnostics for missing/invalid inputs.
+- Layer 4 replay fixtures are wired as a deterministic regression suite (`npm run replay`, `npm run check:strict`).
+- Translation governance is enforced by policy and decision records (`scripts/check-translation-governance.mjs`, `governance/policies/translation-gate.json`).
+- Layer 5 state + diff integration is live in the digest path.
+- Onboarding scripts were added to reduce setup friction for a new leader and a new source (`scripts/onboard-leader.sh`, `scripts/onboard-source.sh`).
+
+Current focus: Layer 6 refinement and reporting quality improvements on top of the shipped contracts.
 
 ## Demo data
 
