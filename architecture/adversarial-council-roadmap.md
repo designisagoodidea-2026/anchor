@@ -277,3 +277,89 @@ Then we re-score impact and effort and update rank before full implementation.
 - Low confidence: product/API unclear or highly variable data shape.
 
 Low-confidence items can stay on roadmap but should not outrank medium/high-confidence items unless expected impact is materially higher.
+
+## Execution-ready estimates (top 5)
+
+These are implementation estimates for the first production sequence, using current assumptions and the scoring model above.
+
+### 1) Jira connector
+
+- Impact: 5.0
+- Effort: 2.0
+- Confidence: High
+- Estimated spike duration: 4 to 5 working days
+- Estimated production slice: 1 additional week after spike
+- Go threshold:
+	- At least 90% parse success on sampled events
+	- At least 95% deterministic replay pass rate in strict mode
+	- At least one capacity and one drift signal improvement visible in fixture-based digest comparison
+
+### 2) GitHub connector
+
+- Impact: 5.0
+- Effort: 2.0
+- Confidence: High
+- Estimated spike duration: 3 to 4 working days
+- Estimated production slice: 1 additional week after spike
+- Go threshold:
+	- PR and issue lifecycle events normalized without schema-loss regressions
+	- Replay passes in permissive and strict modes
+	- At least one decision-to-shipment trace shown in digest output
+
+### 3) Linear connector
+
+- Impact: 5.0
+- Effort: 3.0
+- Confidence: Medium-high
+- Estimated spike duration: 5 to 6 working days
+- Estimated production slice: 1 to 2 additional weeks after spike
+- Go threshold:
+	- At least 85% issue-state transition coverage in sampled workspace
+	- No high-severity normalization drift findings in council review
+	- Net positive signal contribution to health-trend vs Jira-only baseline
+
+### 4) Notion connector
+
+- Impact: 4.0
+- Effort: 3.0
+- Confidence: Medium
+- Estimated spike duration: 5 to 7 working days
+- Estimated production slice: 1 to 2 additional weeks after spike
+- Go threshold:
+	- Stable extraction from at least two representative database/page patterns
+	- At least 80% retained signal fidelity after normalization
+	- Explainability review confirms clear source-to-signal path in diagnostics
+
+### 5) Microsoft Teams connector
+
+- Impact: 4.0
+- Effort: 3.0
+- Confidence: Medium
+- Estimated spike duration: 5 to 7 working days
+- Estimated production slice: 1 to 2 additional weeks after spike
+- Go threshold:
+	- Webhook/subscription reliability confirmed over a 7-day dry run
+	- Duplicate/replay suppression validated under burst traffic
+	- Digest quality check shows non-noisy dependency/coordination signal lift
+
+## Two-week spike template (used for each top connector)
+
+Week 1:
+
+- Day 1: auth/access setup and sample capture.
+- Day 2: canonical mapping draft plus fixture creation.
+- Day 3: replay harness and strict/permissive contract checks.
+- Day 4: first digest comparison and diagnostics review.
+- Day 5: council review package and re-score update.
+
+Week 2:
+
+- Day 6 to 8: harden mapping edge cases and rate-limit handling.
+- Day 9: governance/policy integration and rollback guardrails.
+- Day 10: go or no-go decision with production-slice ticketing.
+
+## Estimate update policy
+
+- Re-estimate after each spike using measured throughput, parse success, replay determinism, and operator load.
+- If measured effort deviates more than 30% from estimate, adjust downstream rank before starting next connector.
+- If confidence drops to low during spike, pause promotion and keep connector in exploratory lane.
