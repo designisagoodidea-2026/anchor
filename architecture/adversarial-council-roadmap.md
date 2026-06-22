@@ -165,3 +165,43 @@ Start with Phase 1 and a narrow Phase 2 pilot. Avoid broad integration until evi
 - Phase C (GoldenFlow-inspired structured normalization boundary, Slack pilot): executed.
 - Phase D (GoldenFlow-inspired scale/backfill readiness at ingest): executed.
 - Next checkpoint: monitor staged rollout metrics and decide whether to expand normalization profile scope beyond Slack pilot.
+
+## Connector roadmap wishlist (candidate products)
+
+This section captures product integrations we intend to evaluate and phase in. Placement below does not guarantee immediate build; each item still goes through council review and slice-based delivery.
+
+### Priority wave 1 (highest immediate value)
+
+- Claude Design
+- Linear
+- Microsoft Teams
+- Zoom
+- Notion
+- Jira
+- UserTesting
+- Confluence
+- Google Docs
+- Google Drive
+- Airtable
+- Granola
+- GitHub
+
+### Priority wave 2 (Google stack expansion)
+
+- Google Meet
+- Google Chat
+- Google Calendar
+- Google Sheets
+- Google Slides
+- Google Antigravity (exploratory): verify exact product identity and API/event access before scoping.
+
+### Priority wave 3 (Adobe ecosystem)
+
+- Adobe XD (primary Adobe prototyping candidate)
+- Adobe Express (secondary candidate for collaborative content workflows)
+
+### Connector intake notes
+
+- Prefer products with stable API/webhook support and event history access.
+- For each candidate, define minimum viable event contract before implementation.
+- Start with read-only ingestion and deterministic replay fixtures before enabling live writes or side effects.
