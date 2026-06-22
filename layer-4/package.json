@@ -1,0 +1,23 @@
+{
+  "name": "anchor-layer-4",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Anchor Layer 4 — translation. Converts resolved change_events into leadable signals (capacity, health-trend, drift) with `because` evidence.",
+  "scripts": {
+    "test": "tsx src/test-translator.ts",
+    "typecheck": "tsc --noEmit",
+    "replay": "tsx scripts/replay-layer4.ts",
+    "replay:update": "tsx scripts/replay-layer4.ts --update",
+    "check:strict": "ANCHOR_TRANSLATION_MODE=strict tsx scripts/replay-layer4.ts"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}

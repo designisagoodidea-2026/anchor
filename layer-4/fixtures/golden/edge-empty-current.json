@@ -1,0 +1,162 @@
+{
+  "name": "edge case - empty current window",
+  "input": {
+    "events": [
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-23T18:00:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/prior-1.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "moderate",
+        "tags": [],
+        "snippet": "prior note 1",
+        "raw_ref": "file:///memory/prior-1.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-23T18:10:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/prior-2.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "structural",
+        "tags": [
+          "decision"
+        ],
+        "snippet": "prior note 2",
+        "raw_ref": "file:///memory/prior-2.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-23T18:20:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/prior-3.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [],
+        "snippet": "prior note 3",
+        "raw_ref": "file:///memory/prior-3.md",
+        "container_id": "c-anchor"
+      }
+    ],
+    "containers": [
+      {
+        "container_id": "c-anchor",
+        "container_name": "Anchor",
+        "current_start": "2026-05-30T00:00:00.000Z",
+        "current_end": "2026-05-31T00:00:00.000Z",
+        "prior_start": "2026-05-23T00:00:00.000Z",
+        "prior_end": "2026-05-30T00:00:00.000Z"
+      }
+    ],
+    "principles": [
+      {
+        "id": "decisions-are-written-down",
+        "text": "Trade-off decisions are captured in writing within 24 hours.",
+        "check": {
+          "kind": "trigger_then_compliance",
+          "trigger": {
+            "tags_include": "decision"
+          },
+          "compliance": {
+            "source": "cowork",
+            "entity_id_contains_any_of": [
+              "architecture/",
+              "memory/"
+            ]
+          }
+        },
+        "window_hours": 24
+      }
+    ],
+    "nowIso": "2026-05-30T19:00:00.000Z",
+    "mode": "permissive"
+  },
+  "expected": {
+    "signals": [
+      {
+        "kind": "health_trend",
+        "container_id": "c-anchor",
+        "container_name": "Anchor",
+        "window": {
+          "start": "2026-05-30T00:00:00.000Z",
+          "end": "2026-05-31T00:00:00.000Z"
+        },
+        "value": {
+          "current_count": 0,
+          "prior_count": 3,
+          "current_weight": 0,
+          "prior_weight": 14,
+          "trend": "no_signal"
+        },
+        "because": [
+          {
+            "raw_ref": "file:///memory/prior-2.md",
+            "snippet": "prior note 2",
+            "timestamp": "2026-05-23T18:10:00.000Z",
+            "kind": "structural",
+            "tags": [
+              "decision"
+            ]
+          },
+          {
+            "raw_ref": "file:///memory/prior-1.md",
+            "snippet": "prior note 1",
+            "timestamp": "2026-05-23T18:00:00.000Z",
+            "kind": "moderate",
+            "tags": []
+          },
+          {
+            "raw_ref": "file:///memory/prior-3.md",
+            "snippet": "prior note 3",
+            "timestamp": "2026-05-23T18:20:00.000Z",
+            "kind": "polish",
+            "tags": []
+          }
+        ],
+        "computed_at": "2026-05-30T19:00:00.000Z"
+      },
+      {
+        "kind": "drift",
+        "container_id": "c-anchor",
+        "container_name": "Anchor",
+        "window": {
+          "start": "2026-05-30T00:00:00.000Z",
+          "end": "2026-05-31T00:00:00.000Z"
+        },
+        "value": {
+          "principle_id": "decisions-are-written-down",
+          "principle_text": "Trade-off decisions are captured in writing within 24 hours.",
+          "state": "no_signal",
+          "triggers_fired": 0,
+          "triggers_satisfied": 0
+        },
+        "because": [],
+        "computed_at": "2026-05-30T19:00:00.000Z"
+      }
+    ]
+  }
+}

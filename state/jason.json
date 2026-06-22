@@ -1,0 +1,813 @@
+{
+  "leader_id": "jason",
+  "last_written_at": "2026-06-04T16:37:21.803Z",
+  "subjects": {
+    "recN2WoFAdxIcPihF|capacity|jason-armstrong": {
+      "container_id": "recN2WoFAdxIcPihF",
+      "signal_kind": "capacity",
+      "subject": "jason-armstrong",
+      "label": "Jason",
+      "last_snapshot": {
+        "state": "surge",
+        "magnitude_score": 232,
+        "computed_at": "2026-06-04T16:37:19.871Z",
+        "label": "Jason"
+      },
+      "flag": null
+    },
+    "recN2WoFAdxIcPihF|health_trend|": {
+      "container_id": "recN2WoFAdxIcPihF",
+      "signal_kind": "health_trend",
+      "subject": "",
+      "label": "Anchor",
+      "last_snapshot": {
+        "state": "plateaued",
+        "magnitude_score": 347,
+        "computed_at": "2026-06-04T16:37:19.871Z",
+        "label": "Anchor"
+      },
+      "flag": null
+    },
+    "recN2WoFAdxIcPihF|drift|decisions-are-written-down": {
+      "container_id": "recN2WoFAdxIcPihF",
+      "signal_kind": "drift",
+      "subject": "decisions-are-written-down",
+      "label": "Trade-off decisions are captured in writing within 24 hours.",
+      "last_snapshot": {
+        "state": "compliant",
+        "magnitude_score": 0,
+        "computed_at": "2026-06-04T16:37:19.871Z",
+        "label": "Trade-off decisions are captured in writing within 24 hours."
+      },
+      "flag": null
+    },
+    "recN2WoFAdxIcPihF|drift|architecture-changes-have-rationale": {
+      "container_id": "recN2WoFAdxIcPihF",
+      "signal_kind": "drift",
+      "subject": "architecture-changes-have-rationale",
+      "label": "Architecture changes ship with an ADR or memory entry that explains the why.",
+      "last_snapshot": {
+        "state": "no_signal",
+        "magnitude_score": 0,
+        "computed_at": "2026-06-04T16:37:19.871Z",
+        "label": "Architecture changes ship with an ADR or memory entry that explains the why."
+      },
+      "flag": null
+    },
+    "recN2WoFAdxIcPihF|drift|design-system-changes-surface-in-writing": {
+      "container_id": "recN2WoFAdxIcPihF",
+      "signal_kind": "drift",
+      "subject": "design-system-changes-surface-in-writing",
+      "label": "Design file changes that touch components or the library get a paired memory entry within 48 hours.",
+      "last_snapshot": {
+        "state": "no_signal",
+        "magnitude_score": 0,
+        "computed_at": "2026-06-04T16:37:19.871Z",
+        "label": "Design file changes that touch components or the library get a paired memory entry within 48 hours."
+      },
+      "flag": null
+    },
+    "recN2WoFAdxIcPihF|drift|code-ships-with-tests": {
+      "container_id": "recN2WoFAdxIcPihF",
+      "signal_kind": "drift",
+      "subject": "code-ships-with-tests",
+      "label": "Code changes ship with the fixture tests touched in the same session.",
+      "last_snapshot": {
+        "state": "no_signal",
+        "magnitude_score": 0,
+        "computed_at": "2026-06-04T16:37:19.871Z",
+        "label": "Code changes ship with the fixture tests touched in the same session."
+      },
+      "flag": null
+    },
+    "recN2WoFAdxIcPihF|drift|setup-docs-track-state": {
+      "container_id": "recN2WoFAdxIcPihF",
+      "signal_kind": "drift",
+      "subject": "setup-docs-track-state",
+      "label": "Multi-step setup documentation tracks which steps are done so the next reader doesn't redo them.",
+      "last_snapshot": {
+        "state": "drifting",
+        "magnitude_score": 2,
+        "computed_at": "2026-06-04T16:37:19.871Z",
+        "label": "Multi-step setup documentation tracks which steps are done so the next reader doesn't redo them."
+      },
+      "flag": null
+    }
+  },
+  "weekly_log": [
+    {
+      "taken_at": "2026-06-04T15:29:55.244Z",
+      "subjects": {
+        "recN2WoFAdxIcPihF|capacity|jason-armstrong": {
+          "state": "no_signal",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T15:29:52.795Z"
+        },
+        "recN2WoFAdxIcPihF|health_trend|": {
+          "state": "no_signal",
+          "magnitude_score": 6,
+          "computed_at": "2026-06-04T15:29:52.795Z"
+        },
+        "recN2WoFAdxIcPihF|drift|decisions-are-written-down": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:29:52.795Z"
+        },
+        "recN2WoFAdxIcPihF|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:29:52.795Z"
+        },
+        "recN2WoFAdxIcPihF|drift|design-system-changes-surface-in-writing": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:29:52.795Z"
+        },
+        "recN2WoFAdxIcPihF|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:29:52.795Z"
+        },
+        "recN2WoFAdxIcPihF|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:29:52.795Z"
+        }
+      }
+    },
+    {
+      "taken_at": "2026-06-04T15:43:21.946Z",
+      "subjects": {
+        "recN2WoFAdxIcPihF|capacity|jason-armstrong": {
+          "state": "surge",
+          "magnitude_score": 26,
+          "computed_at": "2026-06-04T15:43:18.767Z"
+        },
+        "recN2WoFAdxIcPihF|health_trend|": {
+          "state": "plateaued",
+          "magnitude_score": 30,
+          "computed_at": "2026-06-04T15:43:18.767Z"
+        },
+        "recN2WoFAdxIcPihF|drift|decisions-are-written-down": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:43:18.767Z"
+        },
+        "recN2WoFAdxIcPihF|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:43:18.767Z"
+        },
+        "recN2WoFAdxIcPihF|drift|design-system-changes-surface-in-writing": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:43:18.767Z"
+        },
+        "recN2WoFAdxIcPihF|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:43:18.767Z"
+        },
+        "recN2WoFAdxIcPihF|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:43:18.767Z"
+        }
+      }
+    },
+    {
+      "taken_at": "2026-06-04T15:48:21.268Z",
+      "subjects": {
+        "recN2WoFAdxIcPihF|capacity|jason-armstrong": {
+          "state": "surge",
+          "magnitude_score": 28,
+          "computed_at": "2026-06-04T15:48:19.392Z"
+        },
+        "recN2WoFAdxIcPihF|health_trend|": {
+          "state": "plateaued",
+          "magnitude_score": 36,
+          "computed_at": "2026-06-04T15:48:19.392Z"
+        },
+        "recN2WoFAdxIcPihF|drift|decisions-are-written-down": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:48:19.392Z"
+        },
+        "recN2WoFAdxIcPihF|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:48:19.392Z"
+        },
+        "recN2WoFAdxIcPihF|drift|design-system-changes-surface-in-writing": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:48:19.392Z"
+        },
+        "recN2WoFAdxIcPihF|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:48:19.392Z"
+        },
+        "recN2WoFAdxIcPihF|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:48:19.392Z"
+        }
+      }
+    },
+    {
+      "taken_at": "2026-06-04T15:57:09.086Z",
+      "subjects": {
+        "recN2WoFAdxIcPihF|capacity|jason-armstrong": {
+          "state": "surge",
+          "magnitude_score": 74,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recN2WoFAdxIcPihF|health_trend|": {
+          "state": "plateaued",
+          "magnitude_score": 114,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recN2WoFAdxIcPihF|drift|decisions-are-written-down": {
+          "state": "drifting",
+          "magnitude_score": 8,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recN2WoFAdxIcPihF|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recN2WoFAdxIcPihF|drift|design-system-changes-surface-in-writing": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recN2WoFAdxIcPihF|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recN2WoFAdxIcPihF|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recC3ZrCximbulDNc|capacity|u-sam": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recC3ZrCximbulDNc|capacity|jason-armstrong": {
+          "state": "sustained",
+          "magnitude_score": 9,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recC3ZrCximbulDNc|capacity|u-maya": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recC3ZrCximbulDNc|capacity|u-priya": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recC3ZrCximbulDNc|capacity|u-diego": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recC3ZrCximbulDNc|health_trend|": {
+          "state": "improving",
+          "magnitude_score": 36,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recC3ZrCximbulDNc|drift|decisions-are-written-down": {
+          "state": "drifting",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recC3ZrCximbulDNc|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recC3ZrCximbulDNc|drift|design-system-changes-surface-in-writing": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recC3ZrCximbulDNc|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recC3ZrCximbulDNc|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recXyvczzC7FBXEyc|capacity|u-priya": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recXyvczzC7FBXEyc|capacity|jason-armstrong": {
+          "state": "sustained",
+          "magnitude_score": 6,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recXyvczzC7FBXEyc|capacity|u-maya": {
+          "state": "sustained",
+          "magnitude_score": 3,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recXyvczzC7FBXEyc|capacity|u-reza": {
+          "state": "sustained",
+          "magnitude_score": 3,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recXyvczzC7FBXEyc|capacity|u-diego": {
+          "state": "sustained",
+          "magnitude_score": 3,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recXyvczzC7FBXEyc|health_trend|": {
+          "state": "plateaued",
+          "magnitude_score": 43,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recXyvczzC7FBXEyc|drift|decisions-are-written-down": {
+          "state": "drifting",
+          "magnitude_score": 4,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recXyvczzC7FBXEyc|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recXyvczzC7FBXEyc|drift|design-system-changes-surface-in-writing": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recXyvczzC7FBXEyc|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recXyvczzC7FBXEyc|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recgDaAPOW1AMfCHB|capacity|u-priya": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recgDaAPOW1AMfCHB|capacity|u-sam": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recgDaAPOW1AMfCHB|capacity|jason-armstrong": {
+          "state": "sustained",
+          "magnitude_score": 6,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recgDaAPOW1AMfCHB|capacity|u-reza": {
+          "state": "surge",
+          "magnitude_score": 12,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recgDaAPOW1AMfCHB|health_trend|": {
+          "state": "plateaued",
+          "magnitude_score": 29,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recgDaAPOW1AMfCHB|drift|decisions-are-written-down": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recgDaAPOW1AMfCHB|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recgDaAPOW1AMfCHB|drift|design-system-changes-surface-in-writing": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recgDaAPOW1AMfCHB|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recgDaAPOW1AMfCHB|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recX3FVHW1Uj14HtS|capacity|u-priya": {
+          "state": "no_signal",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recX3FVHW1Uj14HtS|capacity|jason-armstrong": {
+          "state": "no_signal",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recX3FVHW1Uj14HtS|capacity|u-sam": {
+          "state": "no_signal",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recX3FVHW1Uj14HtS|capacity|u-maya": {
+          "state": "no_signal",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recX3FVHW1Uj14HtS|health_trend|": {
+          "state": "improving",
+          "magnitude_score": 21,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recX3FVHW1Uj14HtS|drift|decisions-are-written-down": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recX3FVHW1Uj14HtS|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recX3FVHW1Uj14HtS|drift|design-system-changes-surface-in-writing": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recX3FVHW1Uj14HtS|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        },
+        "recX3FVHW1Uj14HtS|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T15:57:08.480Z"
+        }
+      }
+    },
+    {
+      "taken_at": "2026-06-04T16:14:55.645Z",
+      "subjects": {
+        "recN2WoFAdxIcPihF|capacity|jason-armstrong": {
+          "state": "surge",
+          "magnitude_score": 126,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recN2WoFAdxIcPihF|health_trend|": {
+          "state": "plateaued",
+          "magnitude_score": 209,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recN2WoFAdxIcPihF|drift|decisions-are-written-down": {
+          "state": "compliant",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recN2WoFAdxIcPihF|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recN2WoFAdxIcPihF|drift|design-system-changes-surface-in-writing": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recN2WoFAdxIcPihF|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recN2WoFAdxIcPihF|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "reclbOfYnJPadVJ03|capacity|jason-armstrong": {
+          "state": "surge",
+          "magnitude_score": 14,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "reclbOfYnJPadVJ03|capacity|u-priya": {
+          "state": "no_signal",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "reclbOfYnJPadVJ03|capacity|u-maya": {
+          "state": "sustained",
+          "magnitude_score": 4,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "reclbOfYnJPadVJ03|capacity|u-reza": {
+          "state": "sustained",
+          "magnitude_score": 3,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "reclbOfYnJPadVJ03|capacity|u-diego": {
+          "state": "sustained",
+          "magnitude_score": 3,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "reclbOfYnJPadVJ03|health_trend|": {
+          "state": "plateaued",
+          "magnitude_score": 63,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "reclbOfYnJPadVJ03|drift|decisions-are-written-down": {
+          "state": "drifting",
+          "magnitude_score": 6,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "reclbOfYnJPadVJ03|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "reclbOfYnJPadVJ03|drift|design-system-changes-surface-in-writing": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "reclbOfYnJPadVJ03|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "reclbOfYnJPadVJ03|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recQPll7BUos7Nd2l|capacity|jason-armstrong": {
+          "state": "surge",
+          "magnitude_score": 23,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recQPll7BUos7Nd2l|capacity|u-sam": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recQPll7BUos7Nd2l|capacity|u-maya": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recQPll7BUos7Nd2l|capacity|u-priya": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recQPll7BUos7Nd2l|capacity|u-diego": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recQPll7BUos7Nd2l|health_trend|": {
+          "state": "improving",
+          "magnitude_score": 50,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recQPll7BUos7Nd2l|drift|decisions-are-written-down": {
+          "state": "drifting",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recQPll7BUos7Nd2l|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recQPll7BUos7Nd2l|drift|design-system-changes-surface-in-writing": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recQPll7BUos7Nd2l|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recQPll7BUos7Nd2l|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recUXLcgYMniXk1fb|capacity|jason-armstrong": {
+          "state": "sustained",
+          "magnitude_score": 5,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recUXLcgYMniXk1fb|capacity|u-sam": {
+          "state": "no_signal",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recUXLcgYMniXk1fb|capacity|u-maya": {
+          "state": "no_signal",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recUXLcgYMniXk1fb|capacity|u-priya": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recUXLcgYMniXk1fb|health_trend|": {
+          "state": "improving",
+          "magnitude_score": 23,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recUXLcgYMniXk1fb|drift|decisions-are-written-down": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recUXLcgYMniXk1fb|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recUXLcgYMniXk1fb|drift|design-system-changes-surface-in-writing": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recUXLcgYMniXk1fb|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "recUXLcgYMniXk1fb|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "rec7LUiaAsSFGSP3A|capacity|jason-armstrong": {
+          "state": "surge",
+          "magnitude_score": 16,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "rec7LUiaAsSFGSP3A|capacity|u-priya": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "rec7LUiaAsSFGSP3A|capacity|u-sam": {
+          "state": "no_signal",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "rec7LUiaAsSFGSP3A|capacity|u-reza": {
+          "state": "surge",
+          "magnitude_score": 12,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "rec7LUiaAsSFGSP3A|health_trend|": {
+          "state": "plateaued",
+          "magnitude_score": 39,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "rec7LUiaAsSFGSP3A|drift|decisions-are-written-down": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "rec7LUiaAsSFGSP3A|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "rec7LUiaAsSFGSP3A|drift|design-system-changes-surface-in-writing": {
+          "state": "drifting",
+          "magnitude_score": 1,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "rec7LUiaAsSFGSP3A|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        },
+        "rec7LUiaAsSFGSP3A|drift|setup-docs-track-state": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:14:53.853Z"
+        }
+      }
+    },
+    {
+      "taken_at": "2026-06-04T16:34:05.246Z",
+      "subjects": {
+        "recN2WoFAdxIcPihF|capacity|jason-armstrong": {
+          "state": "surge",
+          "magnitude_score": 229,
+          "computed_at": "2026-06-04T16:34:03.005Z",
+          "label": "Jason"
+        },
+        "recN2WoFAdxIcPihF|health_trend|": {
+          "state": "plateaued",
+          "magnitude_score": 344,
+          "computed_at": "2026-06-04T16:34:03.005Z",
+          "label": "Anchor"
+        },
+        "recN2WoFAdxIcPihF|drift|decisions-are-written-down": {
+          "state": "compliant",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:34:03.005Z",
+          "label": "Trade-off decisions are captured in writing within 24 hours."
+        },
+        "recN2WoFAdxIcPihF|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:34:03.005Z",
+          "label": "Architecture changes ship with an ADR or memory entry that explains the why."
+        },
+        "recN2WoFAdxIcPihF|drift|design-system-changes-surface-in-writing": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:34:03.005Z",
+          "label": "Design file changes that touch components or the library get a paired memory entry within 48 hours."
+        },
+        "recN2WoFAdxIcPihF|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:34:03.005Z",
+          "label": "Code changes ship with the fixture tests touched in the same session."
+        },
+        "recN2WoFAdxIcPihF|drift|setup-docs-track-state": {
+          "state": "drifting",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T16:34:03.005Z",
+          "label": "Multi-step setup documentation tracks which steps are done so the next reader doesn't redo them."
+        }
+      }
+    },
+    {
+      "taken_at": "2026-06-04T16:37:21.802Z",
+      "subjects": {
+        "recN2WoFAdxIcPihF|capacity|jason-armstrong": {
+          "state": "surge",
+          "magnitude_score": 232,
+          "computed_at": "2026-06-04T16:37:19.871Z",
+          "label": "Jason"
+        },
+        "recN2WoFAdxIcPihF|health_trend|": {
+          "state": "plateaued",
+          "magnitude_score": 347,
+          "computed_at": "2026-06-04T16:37:19.871Z",
+          "label": "Anchor"
+        },
+        "recN2WoFAdxIcPihF|drift|decisions-are-written-down": {
+          "state": "compliant",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:37:19.871Z",
+          "label": "Trade-off decisions are captured in writing within 24 hours."
+        },
+        "recN2WoFAdxIcPihF|drift|architecture-changes-have-rationale": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:37:19.871Z",
+          "label": "Architecture changes ship with an ADR or memory entry that explains the why."
+        },
+        "recN2WoFAdxIcPihF|drift|design-system-changes-surface-in-writing": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:37:19.871Z",
+          "label": "Design file changes that touch components or the library get a paired memory entry within 48 hours."
+        },
+        "recN2WoFAdxIcPihF|drift|code-ships-with-tests": {
+          "state": "no_signal",
+          "magnitude_score": 0,
+          "computed_at": "2026-06-04T16:37:19.871Z",
+          "label": "Code changes ship with the fixture tests touched in the same session."
+        },
+        "recN2WoFAdxIcPihF|drift|setup-docs-track-state": {
+          "state": "drifting",
+          "magnitude_score": 2,
+          "computed_at": "2026-06-04T16:37:19.871Z",
+          "label": "Multi-step setup documentation tracks which steps are done so the next reader doesn't redo them."
+        }
+      }
+    }
+  ]
+}

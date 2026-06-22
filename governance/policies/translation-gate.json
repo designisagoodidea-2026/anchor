@@ -1,0 +1,9 @@
+{
+  "translation_sensitive_prefixes": [
+    "layer-4/src/",
+    "layer-4/",
+    "renderer/src/translate"
+  ],
+  "max_approval_age_days": 45,
+  "required_phase": "E"
+}

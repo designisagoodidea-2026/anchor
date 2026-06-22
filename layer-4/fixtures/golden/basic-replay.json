@@ -1,0 +1,174 @@
+{
+  "name": "basic translation replay",
+  "input": {
+    "events": [
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-30T18:00:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/anchor-purpose.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "structural",
+        "tags": [
+          "decision"
+        ],
+        "snippet": "updated architecture note",
+        "raw_ref": "file:///memory/anchor-purpose.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-23T18:00:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/old-note.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [],
+        "snippet": "baseline note",
+        "raw_ref": "file:///memory/old-note.md",
+        "container_id": "c-anchor"
+      }
+    ],
+    "containers": [
+      {
+        "container_id": "c-anchor",
+        "container_name": "Anchor",
+        "current_start": "2026-05-30T00:00:00.000Z",
+        "current_end": "2026-05-31T00:00:00.000Z",
+        "prior_start": "2026-05-23T00:00:00.000Z",
+        "prior_end": "2026-05-30T00:00:00.000Z"
+      }
+    ],
+    "principles": [
+      {
+        "id": "decisions-are-written-down",
+        "text": "Trade-off decisions are captured in writing within 24 hours.",
+        "check": {
+          "kind": "trigger_then_compliance",
+          "trigger": {
+            "tags_include": "decision"
+          },
+          "compliance": {
+            "source": "cowork",
+            "entity_id_contains_any_of": [
+              "architecture/",
+              "memory/"
+            ]
+          }
+        },
+        "window_hours": 24
+      }
+    ],
+    "nowIso": "2026-05-30T19:00:00.000Z",
+    "mode": "permissive"
+  },
+  "expected": {
+    "signals": [
+      {
+        "kind": "capacity",
+        "container_id": "c-anchor",
+        "container_name": "Anchor",
+        "window": {
+          "start": "2026-05-30T00:00:00.000Z",
+          "end": "2026-05-31T00:00:00.000Z"
+        },
+        "value": {
+          "person": "u-jason",
+          "person_label": "Jason",
+          "event_count": 1,
+          "by_kind": {
+            "polish": 0,
+            "moderate": 0,
+            "structural": 1,
+            "unknown": 0
+          },
+          "decision_count": 1,
+          "state": "no_signal",
+          "baseline_per_window": null
+        },
+        "because": [
+          {
+            "raw_ref": "file:///memory/anchor-purpose.md",
+            "snippet": "updated architecture note",
+            "timestamp": "2026-05-30T18:00:00.000Z",
+            "kind": "structural",
+            "tags": [
+              "decision"
+            ]
+          }
+        ],
+        "computed_at": "2026-05-30T19:00:00.000Z"
+      },
+      {
+        "kind": "health_trend",
+        "container_id": "c-anchor",
+        "container_name": "Anchor",
+        "window": {
+          "start": "2026-05-30T00:00:00.000Z",
+          "end": "2026-05-31T00:00:00.000Z"
+        },
+        "value": {
+          "current_count": 1,
+          "prior_count": 1,
+          "current_weight": 10,
+          "prior_weight": 1,
+          "trend": "no_signal"
+        },
+        "because": [
+          {
+            "raw_ref": "file:///memory/anchor-purpose.md",
+            "snippet": "updated architecture note",
+            "timestamp": "2026-05-30T18:00:00.000Z",
+            "kind": "structural",
+            "tags": [
+              "decision"
+            ]
+          }
+        ],
+        "computed_at": "2026-05-30T19:00:00.000Z"
+      },
+      {
+        "kind": "drift",
+        "container_id": "c-anchor",
+        "container_name": "Anchor",
+        "window": {
+          "start": "2026-05-30T00:00:00.000Z",
+          "end": "2026-05-31T00:00:00.000Z"
+        },
+        "value": {
+          "principle_id": "decisions-are-written-down",
+          "principle_text": "Trade-off decisions are captured in writing within 24 hours.",
+          "state": "drifting",
+          "triggers_fired": 1,
+          "triggers_satisfied": 0
+        },
+        "because": [
+          {
+            "raw_ref": "file:///memory/anchor-purpose.md",
+            "snippet": "updated architecture note",
+            "timestamp": "2026-05-30T18:00:00.000Z",
+            "kind": "structural",
+            "tags": [
+              "decision"
+            ]
+          }
+        ],
+        "computed_at": "2026-05-30T19:00:00.000Z"
+      }
+    ]
+  }
+}
