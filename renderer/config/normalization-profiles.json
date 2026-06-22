@@ -1,0 +1,22 @@
+{
+  "profiles": {
+    "slack-pilot-v1-core": {
+      "scope": "slack_only",
+      "transforms": [
+        "timestamp_iso",
+        "collapse_snippet_whitespace",
+        "trim_actor_display_name"
+      ]
+    },
+    "slack-pilot-v1": {
+      "scope": "slack_only",
+      "transforms": [
+        "timestamp_iso",
+        "trim_ids",
+        "collapse_snippet_whitespace",
+        "normalize_tags",
+        "trim_actor_display_name"
+      ]
+    }
+  }
+}

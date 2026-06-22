@@ -1,0 +1,33 @@
+{
+  "id": "phase-a-goldenflow-0001",
+  "phase": "A",
+  "source": "GoldenFlow",
+  "impacted_layer": "Layer 1 ingest boundary (renderer plus connector metadata envelopes)",
+  "borrowed_pattern": "strict/permissive ingest mode, minimal contract validation, run manifest",
+  "keep_native_guardrails": [
+    "No Translation Engine semantic changes",
+    "No ontology ownership transfer",
+    "Append-only metadata only",
+    "Strict mode remains env-toggled and reversible"
+  ],
+  "decision": "approve-with-guardrails",
+  "owner": "anchor-core",
+  "reviewed_by": [
+    "anchor-advocate",
+    "goldenflow-advocate",
+    "contentrain-advocate",
+    "council-moderator"
+  ],
+  "date": "2026-06-21",
+  "change_summary": "Implemented ingest boundary validation and manifest output, plus append-only connector metadata for observability.",
+  "acceptance_tests": [
+    "Permissive mode drops invalid events with classified warnings",
+    "Strict mode fails digest when ingest violations exist",
+    "No-violation runs retain semantic parity"
+  ],
+  "rollback_trigger": "Any semantic drift in no-violation runs or unstable strict failures in production-like runs.",
+  "break_glass": {
+    "allowed": true,
+    "retro_sla_hours": 24
+  }
+}

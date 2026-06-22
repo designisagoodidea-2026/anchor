@@ -1,0 +1,42 @@
+name = "anchor-slack-connector"
+main = "src/index.ts"
+compatibility_date = "2026-05-29"
+
+# Deploy surface. Declared explicitly so wrangler's default-on warnings stop
+# (matches the figma connector's wrangler.toml). Lock down for production.
+workers_dev = true
+preview_urls = true
+
+# account_id is read from CLOUDFLARE_ACCOUNT_ID env var.
+
+[vars]
+SOURCE = "slack"
+
+# Secrets — never committed. Set via:
+#   npx wrangler secret put SLACK_BOT_TOKEN
+#   npx wrangler secret put SLACK_SIGNING_SECRET
+#   npx wrangler secret put SLACK_WORKSPACE_ID
+#   npx wrangler secret put SLACK_ADMIN_TOKEN
+# Optional vars:
+#   ALLOW_UNPROTECTED_ADMIN=1  # local dev escape hatch only
+
+[[durable_objects.bindings]]
+name = "ADMIN_RATE_LIMITER"
+class_name = "AdminRateLimiter"
+
+[[migrations]]
+tag = "v1-admin-rate-limiter"
+new_sqlite_classes = ["AdminRateLimiter"]
+
+# KV namespace for connector state (event log, dedup).
+# Created 2026-05-30 via:
+#   npx wrangler kv namespace create "ANCHOR_SLACK_STATE"
+# Title in the Cloudflare dashboard is "ANCHOR_SLACK_STATE";
+# the JS binding name below is "SLACK_STATE" to keep the Worker code clean
+# (env.SLACK_STATE). They don't have to match.
+[[kv_namespaces]]
+binding = "SLACK_STATE"
+id = "440d61365ae347a5aaa05c1c661ae97f"
+
+[observability]
+enabled = true

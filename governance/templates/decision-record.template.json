@@ -1,0 +1,31 @@
+{
+  "id": "phase-a-goldenflow-0001",
+  "phase": "A",
+  "source": "GoldenFlow",
+  "impacted_layer": "Layer 1 ingest boundary",
+  "borrowed_pattern": "strict/permissive mode, contract validation, run manifest",
+  "keep_native_guardrails": [
+    "No Translation Engine semantic changes",
+    "No ontology ownership transfer",
+    "Append-only metadata only"
+  ],
+  "decision": "approve-with-guardrails",
+  "owner": "anchor-core",
+  "reviewed_by": [
+    "anchor-advocate",
+    "goldenflow-advocate",
+    "contentrain-advocate",
+    "council-moderator"
+  ],
+  "date": "2026-06-21",
+  "change_summary": "Describe what changed and why.",
+  "acceptance_tests": [
+    "List acceptance test 1",
+    "List acceptance test 2"
+  ],
+  "rollback_trigger": "Describe rollback trigger.",
+  "break_glass": {
+    "allowed": true,
+    "retro_sla_hours": 24
+  }
+}

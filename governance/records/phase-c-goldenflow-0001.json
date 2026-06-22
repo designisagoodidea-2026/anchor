@@ -1,0 +1,33 @@
+{
+  "id": "phase-c-goldenflow-0001",
+  "phase": "C",
+  "source": "GoldenFlow",
+  "impacted_layer": "Structured normalization boundary at renderer ingest (Slack-only pilot)",
+  "borrowed_pattern": "Named transform registry with profile-driven execution and per-transform counters",
+  "keep_native_guardrails": [
+    "No Translation Engine semantic changes",
+    "No ontology ownership transfer",
+    "Slack-only scope for this phase",
+    "Rollback via ANCHOR_NORMALIZATION_PROFILE=none"
+  ],
+  "decision": "approve-with-guardrails",
+  "owner": "anchor-core",
+  "reviewed_by": [
+    "anchor-advocate",
+    "goldenflow-advocate",
+    "contentrain-advocate",
+    "council-moderator"
+  ],
+  "date": "2026-06-21",
+  "change_summary": "Implemented Core-3 normalization transforms at ingest boundary for Slack source only, with profile provenance and per-transform counters.",
+  "acceptance_tests": [
+    "Slack events are normalized by Core-3 transforms",
+    "Non-Slack events remain unmodified in Phase C",
+    "Per-transform attempted/applied/noop/errored counters reconcile"
+  ],
+  "rollback_trigger": "Any semantic drift in downstream outputs or unstable transform errors under strict mode.",
+  "break_glass": {
+    "allowed": true,
+    "retro_sla_hours": 24
+  }
+}
