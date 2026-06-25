@@ -1,0 +1,59 @@
+name = "anchor-figma-connector"
+main = "src/index.ts"
+compatibility_date = "2026-05-29"
+
+# Deploy surface. Both defaults are on; declaring explicitly silences the
+# wrangler warnings and makes the config honest about what's exposed.
+# - workers_dev publishes to <name>.<subdomain>.workers.dev (the POC URL).
+# - preview_urls publishes a per-version preview URL on every deploy.
+# Lock both down (set to false + add a custom domain route) when this stops
+# being a POC.
+workers_dev = true
+preview_urls = true
+
+# account_id is read from CLOUDFLARE_ACCOUNT_ID env var.
+# Source /Anchor/.env before running wrangler, or `wrangler login` once.
+
+# Non-secret config.
+[vars]
+SOURCE = "figma"
+
+# Secrets — never committed. Set via:
+#   npx wrangler secret put FIGMA_PAT
+#   npx wrangler secret put FIGMA_FILE_KEYS
+#   npx wrangler secret put FIGMA_TEAM_IDS
+#   npx wrangler secret put FIGMA_ADMIN_TOKEN
+# Optional vars:
+#   ALLOW_UNPROTECTED_ADMIN=1  # local dev escape hatch only
+# Listed here for documentation; wrangler ignores commented bindings.
+# secret: FIGMA_PAT       — Figma personal access token, read scope.
+# secret: FIGMA_FILE_KEYS — Comma-separated Figma file keys (manual; legacy
+#                           Stage 1 path; useful for personal-account demos
+#                           where team enumeration isn't available).
+# secret: FIGMA_TEAM_IDS  — Comma-separated Figma team ids (Stage 1.5
+#                           discovery path; pasted from the team URL
+#                           figma.com/files/team/<TEAM_ID>).
+# secret: FIGMA_ADMIN_TOKEN — Optional guard for debug/admin routes; pass in
+#                             X-Anchor-Reset-Token header.
+
+[[durable_objects.bindings]]
+name = "ADMIN_RATE_LIMITER"
+class_name = "AdminRateLimiter"
+
+[[migrations]]
+tag = "v1-admin-rate-limiter"
+new_sqlite_classes = ["AdminRateLimiter"]
+
+# KV namespace for connector state (dedup, last-poll cursor).
+# Created 2026-05-30 via:
+#   npx wrangler kv namespace create "ANCHOR_FIGMA_STATE"
+# Title in the Cloudflare dashboard is "ANCHOR_FIGMA_STATE";
+# the JS binding name below is "FIGMA_STATE" to keep the Worker code clean
+# (env.FIGMA_STATE). They don't have to match.
+[[kv_namespaces]]
+binding = "FIGMA_STATE"
+id = "a975772831fa48909bbdf73ccec2a24d"
+
+# Observability — Workers logs.
+[observability]
+enabled = true

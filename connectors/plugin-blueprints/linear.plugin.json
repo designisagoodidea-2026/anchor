@@ -1,0 +1,81 @@
+{
+  "plugin": {
+    "id": "linear",
+    "display_name": "Linear",
+    "version": "0.1.0",
+    "owner": "layer-1",
+    "status": "candidate"
+  },
+  "runtime": {
+    "mode": "hybrid",
+    "deployment": "cloudflare-worker",
+    "health_endpoint": "/healthz"
+  },
+  "auth": {
+    "model": "oauth",
+    "required_scopes": [
+      "read",
+      "issues:read"
+    ],
+    "workspace_pin": true
+  },
+  "ingest": {
+    "event_sources": [
+      "issue-created",
+      "issue-updated",
+      "issue-state-changed",
+      "comment-created"
+    ],
+    "cursor": {
+      "key_pattern": "cursor:linear:<team_id>",
+      "type": "timestamp",
+      "supports_backfill": true
+    },
+    "dedupe": {
+      "key_pattern": "seen:linear:<event_or_entity_id>",
+      "ttl_seconds": 86400
+    }
+  },
+  "mapping": {
+    "source": "linear",
+    "entity_type_examples": [
+      "issue",
+      "comment",
+      "cycle"
+    ],
+    "action_examples": [
+      "create",
+      "edit",
+      "transition",
+      "comment"
+    ],
+    "kind_rules": [
+      "structural for issue moves that alter roadmap ownership or decomposition",
+      "moderate for normal state changes, estimate updates, issue body revisions",
+      "polish for copy edits and low-impact metadata changes",
+      "unknown when required transition metadata is absent"
+    ],
+    "tag_rules": [
+      "decision when [decision] appears in issue or comment text"
+    ]
+  },
+  "fixtures": {
+    "required": [
+      "linear-happy-path",
+      "linear-empty-window",
+      "linear-retry-dedupe",
+      "linear-decision-tag",
+      "linear-state-change-structural"
+    ],
+    "strict_mode_required": true,
+    "permissive_mode_required": true
+  },
+  "notes": {
+    "known_gaps": [
+      "team and cycle relationship mapping needs empirical fixture validation"
+    ],
+    "risk_flags": [
+      "graph query pagination under high issue volume"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "strict_block_codes": [
+    "container_missing_id",
+    "window_invalid",
+    "principle_missing_id",
+    "principle_duplicate_id",
+    "event_missing_actor",
+    "event_invalid_timestamp",
+    "signal_missing_because",
+    "signal_missing_window"
+  ]
+}

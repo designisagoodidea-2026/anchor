@@ -1,0 +1,64 @@
+{
+  "plugin": {
+    "id": "source-id",
+    "display_name": "Source Name",
+    "version": "0.1.0",
+    "owner": "layer-1",
+    "status": "blueprint"
+  },
+  "runtime": {
+    "mode": "poll|webhook|hybrid",
+    "deployment": "cloudflare-worker|local-watcher|hybrid",
+    "health_endpoint": "/healthz"
+  },
+  "auth": {
+    "model": "oauth|pat|service-account|webhook-signing",
+    "required_scopes": [],
+    "workspace_pin": true
+  },
+  "ingest": {
+    "event_sources": [],
+    "cursor": {
+      "key_pattern": "cursor:<partition>",
+      "type": "timestamp|id|composite",
+      "supports_backfill": true
+    },
+    "dedupe": {
+      "key_pattern": "seen:<source_event_id>",
+      "ttl_seconds": 86400
+    }
+  },
+  "mapping": {
+    "source": "source-id",
+    "entity_type_examples": [],
+    "action_examples": [],
+    "kind_rules": [
+      "polish",
+      "moderate",
+      "structural",
+      "unknown"
+    ],
+    "tag_rules": [
+      "decision"
+    ]
+  },
+  "fixtures": {
+    "required": [
+      "happy-path",
+      "empty-window",
+      "dedupe-retry",
+      "decision-tag",
+      "kind-structural"
+    ],
+    "strict_mode_required": true,
+    "permissive_mode_required": true
+  },
+  "acceptance": {
+    "checklist": "connectors/plugin-blueprints/acceptance-checklist.md",
+    "status": "pending"
+  },
+  "notes": {
+    "known_gaps": [],
+    "risk_flags": []
+  }
+}

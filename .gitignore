@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+connectors/**/node_modules/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# Local environment files
+.env
+.env.*
+
+# Runtime state — never publish (real activity logs)
+state/jason.json
+state/live/

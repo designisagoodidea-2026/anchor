@@ -1,0 +1,85 @@
+{
+  "plugin": {
+    "id": "figma",
+    "display_name": "Figma",
+    "version": "0.2",
+    "owner": "layer-1",
+    "status": "retrofit-current"
+  },
+  "runtime": {
+    "mode": "poll",
+    "deployment": "cloudflare-worker",
+    "health_endpoint": "/healthz"
+  },
+  "auth": {
+    "model": "pat",
+    "required_scopes": [
+      "files:read",
+      "file_versions:read",
+      "file_comments:read"
+    ],
+    "workspace_pin": false
+  },
+  "ingest": {
+    "event_sources": [
+      "file-metadata",
+      "file-versions",
+      "file-comments",
+      "team-project-file-discovery"
+    ],
+    "cursor": {
+      "key_pattern": "cursor:<figma_file_key>",
+      "type": "composite",
+      "supports_backfill": true
+    },
+    "dedupe": {
+      "key_pattern": "cursor-driven-window:<figma_file_key>",
+      "ttl_seconds": 0
+    }
+  },
+  "mapping": {
+    "source": "figma",
+    "entity_type_examples": [
+      "file",
+      "version",
+      "comment",
+      "comment_thread"
+    ],
+    "action_examples": [
+      "create",
+      "edit",
+      "comment",
+      "resolve"
+    ],
+    "kind_rules": [
+      "structural for component/library/tokens/variables level signals",
+      "moderate for substantive labeled versions and resolved threads",
+      "polish for single comments and unlabeled saves",
+      "unknown when classifier cannot determine scope"
+    ],
+    "tag_rules": [
+      "decision when [decision] token appears in version label or comment"
+    ]
+  },
+  "fixtures": {
+    "required": [
+      "figma-happy-path",
+      "figma-empty-window",
+      "figma-cursor-replay",
+      "figma-decision-tag",
+      "figma-structural-library-change"
+    ],
+    "strict_mode_required": true,
+    "permissive_mode_required": true
+  },
+  "notes": {
+    "known_gaps": [
+      "v0.2 is polling-only; no webhook feed yet",
+      "team discovery depends on account tier and team API availability"
+    ],
+    "risk_flags": [
+      "PAT lifecycle and token rotation",
+      "discovery path variability across Figma plans"
+    ]
+  }
+}

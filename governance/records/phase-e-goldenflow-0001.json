@@ -1,0 +1,37 @@
+{
+  "id": "phase-e-goldenflow-0001",
+  "phase": "E",
+  "source": "GoldenFlow",
+  "impacted_layer": "Translation Engine governance + ingest profiling handoff",
+  "borrowed_pattern": "Mandatory approval gate for translation-sensitive changes backed by decision-record policy checks",
+  "keep_native_guardrails": [
+    "Anchor keeps translation ontology ownership",
+    "Translation-sensitive changes require explicit Phase E approval",
+    "No hidden rule mutations without governance artifacts"
+  ],
+  "decision": "approve-with-guardrails",
+  "owner": "anchor-core",
+  "reviewed_by": [
+    "anchor-advocate",
+    "goldenflow-advocate",
+    "contentrain-advocate",
+    "council-moderator"
+  ],
+  "date": "2026-06-22",
+  "change_summary": "Added translation governance gate script and wired governance-check to enforce decision coverage for translation-sensitive file changes.",
+  "change_scope_prefixes": [
+    "layer-4/",
+    "layer-4/src/",
+    "renderer/src/translate"
+  ],
+  "acceptance_tests": [
+    "No translation-sensitive changes => gate passes",
+    "Translation-sensitive changes with Phase E approval => gate passes",
+    "Translation-sensitive changes without Phase E approval => gate fails"
+  ],
+  "rollback_trigger": "Translation-sensitive changes bypass governance checks or ship without explicit approval artifacts.",
+  "break_glass": {
+    "allowed": true,
+    "retro_sla_hours": 24
+  }
+}

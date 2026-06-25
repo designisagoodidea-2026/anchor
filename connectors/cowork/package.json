@@ -1,0 +1,16 @@
+{
+  "name": "anchor-cowork-connector",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Anchor Layer 1 connector — Cowork skill runs, artifact updates, conversation activity. Runs locally; watches the project folder on Jason's machine.",
+  "main": "src/index.js",
+  "scripts": {
+    "watch": "node src/index.js",
+    "test": "node src/test-fixtures.js",
+    "typecheck": "echo 'Cowork connector is plain JavaScript — no TypeScript check needed'"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0"
+  }
+}

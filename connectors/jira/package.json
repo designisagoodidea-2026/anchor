@@ -1,0 +1,19 @@
+{
+  "name": "anchor-jira-connector",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Anchor Layer 1 connector for Jira events.",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "tsx src/test-classify.ts",
+    "typecheck": "tsc --noEmit",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "wrangler": "^4.95.0"
+  }
+}

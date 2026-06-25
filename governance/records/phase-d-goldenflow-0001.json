@@ -1,0 +1,33 @@
+{
+  "id": "phase-d-goldenflow-0001",
+  "phase": "D",
+  "source": "GoldenFlow",
+  "impacted_layer": "Scale/backfill readiness at ingest boundary",
+  "borrowed_pattern": "Optional stream parser mode, deterministic line cap, degraded-state signaling",
+  "keep_native_guardrails": [
+    "No Translation Engine semantic changes",
+    "No ontology ownership transfer",
+    "Default parity when cap unset",
+    "Cap-hit runs explicitly marked degraded"
+  ],
+  "decision": "approve-with-guardrails",
+  "owner": "anchor-core",
+  "reviewed_by": [
+    "anchor-advocate",
+    "goldenflow-advocate",
+    "contentrain-advocate",
+    "council-moderator"
+  ],
+  "date": "2026-06-21",
+  "change_summary": "Added optional cowork stream parser mode and deterministic line-cap controls with manifest limits diagnostics and degraded-state signaling.",
+  "acceptance_tests": [
+    "Cap unset preserves baseline behavior",
+    "Cap on received lines yields deterministic boundary",
+    "Cap-hit sets degraded status and warning"
+  ],
+  "rollback_trigger": "Any silent truncation or replay boundary instability under cap-mode.",
+  "break_glass": {
+    "allowed": true,
+    "retro_sla_hours": 24
+  }
+}

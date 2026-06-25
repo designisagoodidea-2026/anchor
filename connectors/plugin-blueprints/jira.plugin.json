@@ -1,0 +1,85 @@
+{
+  "plugin": {
+    "id": "jira",
+    "display_name": "Jira",
+    "version": "0.1.0",
+    "owner": "layer-1",
+    "status": "candidate"
+  },
+  "runtime": {
+    "mode": "hybrid",
+    "deployment": "cloudflare-worker",
+    "health_endpoint": "/healthz"
+  },
+  "auth": {
+    "model": "oauth",
+    "required_scopes": [
+      "read:jira-work",
+      "read:jira-user"
+    ],
+    "workspace_pin": true
+  },
+  "ingest": {
+    "event_sources": [
+      "issue-created",
+      "issue-updated",
+      "issue-transitioned",
+      "comment-created",
+      "comment-updated"
+    ],
+    "cursor": {
+      "key_pattern": "cursor:jira:<cloud_id>:<project_key>",
+      "type": "composite",
+      "supports_backfill": true
+    },
+    "dedupe": {
+      "key_pattern": "seen:jira:<event_id>",
+      "ttl_seconds": 86400
+    }
+  },
+  "mapping": {
+    "source": "jira",
+    "entity_type_examples": [
+      "issue",
+      "comment"
+    ],
+    "action_examples": [
+      "create",
+      "edit",
+      "transition",
+      "comment"
+    ],
+    "kind_rules": [
+      "structural for epic creation, component changes, workflow state shifts affecting delivery path",
+      "moderate for issue updates, estimation changes, moderate comment threads",
+      "polish for wording edits, minor field updates",
+      "unknown when event payload is incomplete"
+    ],
+    "tag_rules": [
+      "decision when [decision] token appears in issue/comment text"
+    ]
+  },
+  "fixtures": {
+    "required": [
+      "jira-happy-path",
+      "jira-empty-window",
+      "jira-retry-dedupe",
+      "jira-decision-tag",
+      "jira-structural-transition"
+    ],
+    "strict_mode_required": true,
+    "permissive_mode_required": true
+  },
+  "acceptance": {
+    "checklist": "connectors/plugin-blueprints/acceptance-checklist.md",
+    "status": "in-progress"
+  },
+  "notes": {
+    "known_gaps": [
+      "multi-project pagination and rate-limit behavior needs fixture coverage"
+    ],
+    "risk_flags": [
+      "workspace-specific custom fields"
+    ]
+  }
+}

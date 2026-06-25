@@ -1,0 +1,84 @@
+{
+  "plugin": {
+    "id": "github",
+    "display_name": "GitHub",
+    "version": "0.1.0",
+    "owner": "layer-1",
+    "status": "candidate"
+  },
+  "runtime": {
+    "mode": "hybrid",
+    "deployment": "cloudflare-worker",
+    "health_endpoint": "/healthz"
+  },
+  "auth": {
+    "model": "oauth",
+    "required_scopes": [
+      "repo",
+      "read:org"
+    ],
+    "workspace_pin": true
+  },
+  "ingest": {
+    "event_sources": [
+      "issues",
+      "issue_comment",
+      "pull_request",
+      "pull_request_review",
+      "pull_request_review_comment"
+    ],
+    "cursor": {
+      "key_pattern": "cursor:github:<org>:<repo>",
+      "type": "timestamp",
+      "supports_backfill": true
+    },
+    "dedupe": {
+      "key_pattern": "seen:github:<delivery_id_or_node_id>",
+      "ttl_seconds": 86400
+    }
+  },
+  "mapping": {
+    "source": "github",
+    "entity_type_examples": [
+      "issue",
+      "pull_request",
+      "review",
+      "comment"
+    ],
+    "action_examples": [
+      "open",
+      "edit",
+      "close",
+      "merge",
+      "review"
+    ],
+    "kind_rules": [
+      "structural for architecture-impacting PRs, large cross-cutting changes, repo config shifts",
+      "moderate for feature PRs, issue lifecycle transitions, review exchanges",
+      "polish for small comments, label updates, typo-only diffs",
+      "unknown when webhook payload is missing key fields"
+    ],
+    "tag_rules": [
+      "decision when [decision] appears in PR/issue/review body"
+    ]
+  },
+  "fixtures": {
+    "required": [
+      "github-happy-path",
+      "github-empty-window",
+      "github-retry-dedupe",
+      "github-decision-tag",
+      "github-merge-structural"
+    ],
+    "strict_mode_required": true,
+    "permissive_mode_required": true
+  },
+  "notes": {
+    "known_gaps": [
+      "mapping of code-size heuristics to kind needs calibrating"
+    ],
+    "risk_flags": [
+      "org-level webhook installation permissions"
+    ]
+  }
+}

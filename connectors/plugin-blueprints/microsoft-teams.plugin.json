@@ -1,0 +1,82 @@
+{
+  "plugin": {
+    "id": "microsoft-teams",
+    "display_name": "Microsoft Teams",
+    "version": "0.1.0",
+    "owner": "layer-1",
+    "status": "candidate"
+  },
+  "runtime": {
+    "mode": "hybrid",
+    "deployment": "cloudflare-worker",
+    "health_endpoint": "/healthz"
+  },
+  "auth": {
+    "model": "oauth",
+    "required_scopes": [
+      "ChannelMessage.Read.All",
+      "Chat.Read.All",
+      "Team.ReadBasic.All",
+      "User.Read.All"
+    ],
+    "workspace_pin": true
+  },
+  "ingest": {
+    "event_sources": [
+      "channel-message-created",
+      "chat-message-created",
+      "reply-created",
+      "team-channel-created"
+    ],
+    "cursor": {
+      "key_pattern": "cursor:teams:<tenant_id>:<team_or_channel>",
+      "type": "composite",
+      "supports_backfill": true
+    },
+    "dedupe": {
+      "key_pattern": "seen:teams:<subscription_or_message_id>",
+      "ttl_seconds": 86400
+    }
+  },
+  "mapping": {
+    "source": "microsoft-teams",
+    "entity_type_examples": [
+      "message",
+      "thread_reply",
+      "channel"
+    ],
+    "action_examples": [
+      "create",
+      "reply",
+      "channel_create"
+    ],
+    "kind_rules": [
+      "structural for new project channels and major cross-team coordination shifts",
+      "moderate for active thread exchanges and operational decision threads",
+      "polish for single messages and reactions",
+      "unknown when payload metadata does not identify scope"
+    ],
+    "tag_rules": [
+      "decision when [decision] appears in message content"
+    ]
+  },
+  "fixtures": {
+    "required": [
+      "teams-happy-path",
+      "teams-empty-window",
+      "teams-retry-dedupe",
+      "teams-decision-tag",
+      "teams-channel-created-structural"
+    ],
+    "strict_mode_required": true,
+    "permissive_mode_required": true
+  },
+  "notes": {
+    "known_gaps": [
+      "Graph subscription lifecycle and renewal automation needs explicit runtime support"
+    ],
+    "risk_flags": [
+      "tenant admin consent friction"
+    ]
+  }
+}

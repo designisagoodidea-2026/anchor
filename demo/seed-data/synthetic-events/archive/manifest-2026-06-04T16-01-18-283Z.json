@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-06-04T15:49:59.205Z",
+  "start_iso": "2026-06-04T15:49:59.193Z",
+  "duration_minutes": 5,
+  "airtable_rows": [
+    {
+      "project_slug": "search-ux",
+      "airtable_id": "recC3ZrCximbulDNc"
+    },
+    {
+      "project_slug": "onboarding",
+      "airtable_id": "recXyvczzC7FBXEyc"
+    },
+    {
+      "project_slug": "settings-polish",
+      "airtable_id": "rec4glZrTN0d7tvTJ"
+    },
+    {
+      "project_slug": "native-mobile",
+      "airtable_id": "recgDaAPOW1AMfCHB"
+    },
+    {
+      "project_slug": "q3-roadmap",
+      "airtable_id": "recX3FVHW1Uj14HtS"
+    }
+  ],
+  "cowork_files": [
+    "demo/seed-data/projects/onboarding/onboarding-acceptance.md",
+    "demo/seed-data/projects/onboarding/onboarding-acceptance.md",
+    "demo/seed-data/projects/search-ux/search-ux-flow-notes.md",
+    "demo/seed-data/projects/search-ux/search-ux-explorations.md",
+    "demo/seed-data/projects/onboarding/onboarding-crit-notes.md",
+    "demo/seed-data/projects/search-ux/search-ux-overview.md",
+    "demo/seed-data/projects/search-ux/search-ux-explorations.md",
+    "demo/seed-data/projects/search-ux/search-ux-overview.md",
+    "demo/seed-data/projects/search-ux/search-ux-explorations.md",
+    "demo/seed-data/projects/search-ux/search-ux-overview.md",
+    "demo/seed-data/projects/search-ux/search-ux-prototype-v3.md",
+    "demo/seed-data/projects/onboarding/decision-onboarding-pattern.md",
+    "demo/seed-data/projects/search-ux/search-ux-research-notes.md",
+    "demo/seed-data/projects/q3-roadmap/q3-roadmap-overview.md",
+    "demo/seed-data/projects/onboarding/decision-onboarding-direction.md",
+    "demo/seed-data/projects/native-mobile/native-mobile-prototype-v4.md",
+    "demo/seed-data/projects/native-mobile/native-mobile-flow-notes.md",
+    "demo/seed-data/projects/native-mobile/native-mobile-explorations.md",
+    "demo/seed-data/projects/native-mobile/native-mobile-flow-notes.md",
+    "demo/seed-data/projects/native-mobile/native-mobile-explorations.md",
+    "demo/seed-data/projects/native-mobile/native-mobile-flow-notes.md"
+  ],
+  "figma_ndjson_path": "demo/seed-data/synthetic-events/figma.ndjson",
+  "slack_ndjson_path": "demo/seed-data/synthetic-events/slack.ndjson",
+  "total_events": 55
+}

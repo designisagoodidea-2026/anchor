@@ -1,0 +1,397 @@
+{
+  "name": "regression guard - decision weight without structural share contamination",
+  "input": {
+    "events": [
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-30T08:00:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/current-1.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [],
+        "snippet": "current polish 1",
+        "raw_ref": "file:///memory/current-1.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-30T08:10:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/current-2.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [],
+        "snippet": "current polish 2",
+        "raw_ref": "file:///memory/current-2.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-30T08:20:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/current-3.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [
+          "decision"
+        ],
+        "snippet": "current polish decision 1",
+        "raw_ref": "file:///memory/current-3.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-30T08:30:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/current-4.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [
+          "decision"
+        ],
+        "snippet": "current polish decision 2",
+        "raw_ref": "file:///memory/current-4.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-30T08:40:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/current-5.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [],
+        "snippet": "current polish 5",
+        "raw_ref": "file:///memory/current-5.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-23T08:00:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/prior-1.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [],
+        "snippet": "prior polish 1",
+        "raw_ref": "file:///memory/prior-1.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-23T08:10:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/prior-2.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [],
+        "snippet": "prior polish 2",
+        "raw_ref": "file:///memory/prior-2.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-23T08:20:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/prior-3.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [],
+        "snippet": "prior polish 3",
+        "raw_ref": "file:///memory/prior-3.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-23T08:30:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/prior-4.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [],
+        "snippet": "prior polish 4",
+        "raw_ref": "file:///memory/prior-4.md",
+        "container_id": "c-anchor"
+      },
+      {
+        "actor": {
+          "id": "u-jason",
+          "display_name": "Jason",
+          "source_user_id": "u-jason",
+          "role_hint": null
+        },
+        "timestamp": "2026-05-23T08:40:00.000Z",
+        "source": "cowork",
+        "entity_id": "memory/prior-5.md",
+        "entity_type": "memory_entry",
+        "parent_id": "memory",
+        "action": "edit",
+        "kind": "polish",
+        "tags": [],
+        "snippet": "prior polish 5",
+        "raw_ref": "file:///memory/prior-5.md",
+        "container_id": "c-anchor"
+      }
+    ],
+    "containers": [
+      {
+        "container_id": "c-anchor",
+        "container_name": "Anchor",
+        "current_start": "2026-05-30T00:00:00.000Z",
+        "current_end": "2026-05-31T00:00:00.000Z",
+        "prior_start": "2026-05-23T00:00:00.000Z",
+        "prior_end": "2026-05-30T00:00:00.000Z"
+      }
+    ],
+    "principles": [
+      {
+        "id": "decisions-are-written-down",
+        "text": "Trade-off decisions are captured in writing within 24 hours.",
+        "check": {
+          "kind": "trigger_then_compliance",
+          "trigger": {
+            "tags_include": "decision"
+          },
+          "compliance": {
+            "source": "cowork",
+            "entity_id_contains_any_of": [
+              "architecture/",
+              "memory/"
+            ]
+          }
+        },
+        "window_hours": 24
+      }
+    ],
+    "nowIso": "2026-05-30T19:00:00.000Z",
+    "mode": "permissive"
+  },
+  "expected": {
+    "signals": [
+      {
+        "kind": "capacity",
+        "container_id": "c-anchor",
+        "container_name": "Anchor",
+        "window": {
+          "start": "2026-05-30T00:00:00.000Z",
+          "end": "2026-05-31T00:00:00.000Z"
+        },
+        "value": {
+          "person": "u-jason",
+          "person_label": "Jason",
+          "event_count": 5,
+          "by_kind": {
+            "polish": 5,
+            "moderate": 0,
+            "structural": 0,
+            "unknown": 0
+          },
+          "decision_count": 2,
+          "state": "sustained",
+          "baseline_per_window": null
+        },
+        "because": [
+          {
+            "raw_ref": "file:///memory/current-4.md",
+            "snippet": "current polish decision 2",
+            "timestamp": "2026-05-30T08:30:00.000Z",
+            "kind": "polish",
+            "tags": [
+              "decision"
+            ]
+          },
+          {
+            "raw_ref": "file:///memory/current-3.md",
+            "snippet": "current polish decision 1",
+            "timestamp": "2026-05-30T08:20:00.000Z",
+            "kind": "polish",
+            "tags": [
+              "decision"
+            ]
+          },
+          {
+            "raw_ref": "file:///memory/current-5.md",
+            "snippet": "current polish 5",
+            "timestamp": "2026-05-30T08:40:00.000Z",
+            "kind": "polish",
+            "tags": []
+          },
+          {
+            "raw_ref": "file:///memory/current-2.md",
+            "snippet": "current polish 2",
+            "timestamp": "2026-05-30T08:10:00.000Z",
+            "kind": "polish",
+            "tags": []
+          },
+          {
+            "raw_ref": "file:///memory/current-1.md",
+            "snippet": "current polish 1",
+            "timestamp": "2026-05-30T08:00:00.000Z",
+            "kind": "polish",
+            "tags": []
+          }
+        ],
+        "computed_at": "2026-05-30T19:00:00.000Z"
+      },
+      {
+        "kind": "health_trend",
+        "container_id": "c-anchor",
+        "container_name": "Anchor",
+        "window": {
+          "start": "2026-05-30T00:00:00.000Z",
+          "end": "2026-05-31T00:00:00.000Z"
+        },
+        "value": {
+          "current_count": 5,
+          "prior_count": 5,
+          "current_weight": 13,
+          "prior_weight": 5,
+          "trend": "plateaued"
+        },
+        "because": [
+          {
+            "raw_ref": "file:///memory/current-4.md",
+            "snippet": "current polish decision 2",
+            "timestamp": "2026-05-30T08:30:00.000Z",
+            "kind": "polish",
+            "tags": [
+              "decision"
+            ]
+          },
+          {
+            "raw_ref": "file:///memory/current-3.md",
+            "snippet": "current polish decision 1",
+            "timestamp": "2026-05-30T08:20:00.000Z",
+            "kind": "polish",
+            "tags": [
+              "decision"
+            ]
+          },
+          {
+            "raw_ref": "file:///memory/current-5.md",
+            "snippet": "current polish 5",
+            "timestamp": "2026-05-30T08:40:00.000Z",
+            "kind": "polish",
+            "tags": []
+          },
+          {
+            "raw_ref": "file:///memory/current-2.md",
+            "snippet": "current polish 2",
+            "timestamp": "2026-05-30T08:10:00.000Z",
+            "kind": "polish",
+            "tags": []
+          },
+          {
+            "raw_ref": "file:///memory/current-1.md",
+            "snippet": "current polish 1",
+            "timestamp": "2026-05-30T08:00:00.000Z",
+            "kind": "polish",
+            "tags": []
+          }
+        ],
+        "computed_at": "2026-05-30T19:00:00.000Z"
+      },
+      {
+        "kind": "drift",
+        "container_id": "c-anchor",
+        "container_name": "Anchor",
+        "window": {
+          "start": "2026-05-30T00:00:00.000Z",
+          "end": "2026-05-31T00:00:00.000Z"
+        },
+        "value": {
+          "principle_id": "decisions-are-written-down",
+          "principle_text": "Trade-off decisions are captured in writing within 24 hours.",
+          "state": "compliant",
+          "triggers_fired": 2,
+          "triggers_satisfied": 2
+        },
+        "because": [
+          {
+            "raw_ref": "file:///memory/current-3.md",
+            "snippet": "current polish decision 1",
+            "timestamp": "2026-05-30T08:20:00.000Z",
+            "kind": "polish",
+            "tags": [
+              "decision"
+            ]
+          },
+          {
+            "raw_ref": "file:///memory/current-4.md",
+            "snippet": "current polish decision 2",
+            "timestamp": "2026-05-30T08:30:00.000Z",
+            "kind": "polish",
+            "tags": [
+              "decision"
+            ]
+          }
+        ],
+        "computed_at": "2026-05-30T19:00:00.000Z"
+      }
+    ]
+  }
+}

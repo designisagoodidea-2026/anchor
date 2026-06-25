@@ -1,0 +1,23 @@
+{
+  "name": "anchor-renderer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Anchor Layer 6 — voice + rendering. Reads change_event records, computes signals via Layer 4, produces a leader-voiced digest.",
+  "main": "src/digest.ts",
+  "scripts": {
+    "digest": "tsx src/digest.ts",
+    "friday": "tsx src/friday.ts",
+    "test": "tsx src/test-ingest.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}
